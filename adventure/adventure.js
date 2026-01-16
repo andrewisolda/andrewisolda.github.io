@@ -1,5 +1,4 @@
 (function () {
-  // Small state that feels like real life but not, like, too real.
   const state = {
     confidence: "medium",
     rounds: 0,
@@ -7,7 +6,6 @@
     ending: null
   };
 
-  // Dry humor + brief realism. Nodes are short; choices do the work.
   const story = {
     start: {
       text:
@@ -23,10 +21,9 @@
       effect: () => {
         state.confidence = "high";
         state.scope = "contained-ish";
-        state.rounds += 1;
       },
       text:
-        "You ask for more context that was conspicuously absent from the brief they sent: audience, CTA, channel, and a slightly-reworded version of “what the hell are we actually tyring to do here?”\n\nA miracle occurs: they answer. Not fully, but it's enough to work with...probably.",
+        "You ask for more context that was conspicuously absent from the brief they sent: audience, CTA, channel, and a slightly-reworded version of “what the hell are we actually trying to do here?”\n\nA miracle occurs: they answer. Not fully, but it's enough to work with...probably.",
       choices: [
         { label: "Draft three options: safe, smart, spicy.", to: "threeOptions" },
         { label: "Build a messaging hierarchy—don't want to put the cart before the horse, right?", to: "hierarchy" }
@@ -37,7 +34,6 @@
       effect: () => {
         state.confidence = "medium-low";
         state.scope = "expanding";
-        state.rounds += 1;
       },
       text:
         "You open a new Word doc, staring blankly at glowing void before you. It stares back.\n\nYou type a headline. Delete it. Type another. Delete it.\n\nShit. This used to be easier.\n\nYou can feel your computer judging you.",
@@ -51,7 +47,6 @@
       effect: () => {
         state.confidence = "bold (incorrect)";
         state.scope = "mystery";
-        state.rounds += 1;
       },
       text:
         "You reply “Love it.”\n\nStakeholder replies: “Amazing. Also legal has feedback already.”\n\nTime: 9:06 AM. Great start.",
@@ -62,7 +57,6 @@
     },
 
     threeOptions: {
-      effect: () => { state.rounds += 1; },
       text:
         "You deliver three options.\n\nThey choose… a fourth option. “Can we combine #1’s clarity, #2’s tone, and #3’s energy, but shorter?”\n\nYou let out a resigned sigh.",
       choices: [
@@ -72,7 +66,9 @@
     },
 
     hierarchy: {
-      effect: () => { state.confidence = "high"; state.rounds += 1; },
+      effect: () => {
+        state.confidence = "high";
+      },
       text:
         "You build a messaging hierarchy.\n\nStakeholder: “Wow. Good stuff. Can we add 11 more benefits?”\n\nYou think back to that circular breathing technique your therapist taught you. In for four, out for eight.\n\nThat's a little better.",
       choices: [
@@ -82,7 +78,6 @@
     },
 
     outline: {
-      effect: () => { state.confidence = "medium"; state.rounds += 1; },
       text:
         "You outline: audience → promise → proof → CTA.\n\nIt’s not glamorous, but neither is filing for unemployment.\n\nThe client pings you again: “How's it coming along?”",
       choices: [
@@ -92,7 +87,9 @@
     },
 
     tightenLater: {
-      effect: () => { state.scope = "expanding"; state.rounds += 2; },
+      effect: () => {
+        state.scope = "expanding";
+      },
       text:
         "The Adderall is doing its thing. An unearned sense of confidence sprouts from deep within, making you feel warm and fuzzy.\n\nYou write fast, not even stopping to check what you're putting on the page.\n\nFuck it, let's see what they think.\n\nFeedback arrives shortly after: “This is great. Can we make it more premium but also more approachable, and also funnier but less casual?”",
       choices: [
@@ -102,7 +99,9 @@
     },
 
     legalOptimizing: {
-      effect: () => { state.confidence = "medium-high"; state.rounds += 1; },
+      effect: () => {
+        state.confidence = "medium-high";
+      },
       text:
         "You ask what legal is optimizing for.\n\nLegal responds with a list of forbidden words.\n\nSurprisingly, you can still say something. You just have to… vaguely gesture at it.",
       choices: [
@@ -112,7 +111,10 @@
     },
 
     pretendOptional: {
-      effect: () => { state.confidence = "audacious"; state.rounds += 1; state.scope = "chaos"; },
+      effect: () => {
+        state.confidence = "audacious";
+        state.scope = "chaos";
+      },
       text:
         "You pretend legal feedback is optional.\n\nIt is not.\n\nA calendar invite appears: “Legal Sync (30 min).\n\n”Welp. Looks like you gambled and lost.",
       choices: [
@@ -122,7 +124,10 @@
     },
 
     northStar: {
-      effect: () => { state.confidence = "high"; state.scope = "contained"; state.rounds += 1; },
+      effect: () => {
+        state.confidence = "high";
+        state.scope = "contained";
+      },
       text:
         "You propose a north-star line and 3 supporting proof points.\n\nThey say: “This is the first time I’ve understood our product.”\n\nTruth be told, this is the first time you've understood their product, too.",
       choices: [
@@ -132,7 +137,10 @@
     },
 
     smoothie: {
-      effect: () => { state.confidence = "medium"; state.rounds += 2; state.scope = "expanding"; },
+      effect: () => {
+        state.confidence = "medium";
+        state.scope = "expanding";
+      },
       text:
         "You blend the options.\n\nIt’s workable.\n\nStakeholder: “Great. Now can we do 12 versions for different audiences?”\n\nYou feel a migraine coming on.",
       choices: [
@@ -142,7 +150,9 @@
     },
 
     cutline: {
-      effect: () => { state.confidence = "high"; state.rounds += 1; },
+      effect: () => {
+        state.confidence = "high";
+      },
       text:
         "You say, gently: “If everything is important, nothing is.”\n\nSilence.\n\nThey reply: “That’s fair.”\n\nYou have successfully negotiated with reality.",
       choices: [
@@ -152,9 +162,12 @@
     },
 
     reduceFont: {
-      effect: () => { state.confidence = "medium-low"; state.rounds += 2; state.scope = "expanding"; },
+      effect: () => {
+        state.confidence = "medium-low";
+        state.scope = "expanding";
+      },
       text:
-        "You add the benefits. The product brief now looks like it’s whispering.\n\nSomeone says: “Can we make it pop?”,
+        "You add the benefits. The product brief now looks like it’s whispering.\n\nSomeone says: “Can we make it pop?”",
       choices: [
         { label: "Recommend splitting into two slides.", to: "endingSplit" },
         { label: "Accept the fact that you're giving Small Font Energy.", to: "endingTinyType" }
@@ -162,7 +175,9 @@
     },
 
     roughDirection: {
-      effect: () => { state.confidence = "medium-high"; state.rounds += 1; },
+      effect: () => {
+        state.confidence = "medium-high";
+      },
       text:
         "You send a direction with rationale.\n\nStakeholder replies: “Love the thinking.”\n\nYour work has been perceived. Nice.",
       choices: [
@@ -172,7 +187,6 @@
     },
 
     countsAsProgress: {
-      effect: () => { state.confidence = "medium"; state.rounds += 1; },
       text:
         "You say “In progress.”\n\nThey respond with a thumbs up.\n\nA thumbs up is not feedback, but it is technically a form of communication.",
       choices: [
@@ -182,7 +196,10 @@
     },
 
     translateFeedback: {
-      effect: () => { state.confidence = "high"; state.rounds += 1; state.scope = "contained"; },
+      effect: () => {
+        state.confidence = "high";
+        state.scope = "contained";
+      },
       text:
         "You translate feedback into two concrete changes and confirm.\n\nThey say: “Yes. Exactly.”\n\nYou look around to see if anyone witnessed this historic event.",
       choices: [
@@ -192,7 +209,10 @@
     },
 
     thesaurus: {
-      effect: () => { state.confidence = "medium-low"; state.rounds += 2; state.scope = "chaos"; },
+      effect: () => {
+        state.confidence = "medium-low";
+        state.scope = "chaos";
+      },
       text:
         "You consult the thesaurus.\n\nNow everything sounds like a luxury candle brand.\n\nStakeholder: “This feels… expensive.”\n\nYou are not sure that’s good.",
       choices: [
@@ -202,34 +222,37 @@
     },
 
     safeClaims: {
-      effect: () => { state.confidence = "high"; state.rounds += 1; },
+      effect: () => {
+        state.confidence = "high";
+      },
       text:
         "You rewrite with safer claims and cleaner phrasing.\n\nLegal approves.\n\nYou feel your shoulders relax slightly.",
-      choices: [
-        { label: "Ship it.", to: "endingApproved" }
-      ]
+      choices: [{ label: "Ship it.", to: "endingApproved" }]
     },
 
     proofTalk: {
-      effect: () => { state.confidence = "high"; state.rounds += 1; },
+      effect: () => {
+        state.confidence = "high";
+      },
       text:
         "You let proof do the talking.\n\nLess promise, more receipts.\n\nEveryone nods. This is the closest thing to peace.",
-      choices: [
-        { label: "Ship it.", to: "endingApproved" }
-      ]
+      choices: [{ label: "Ship it.", to: "endingApproved" }]
     },
 
     legalSync: {
-      effect: () => { state.confidence = "medium-high"; state.rounds += 1; },
+      effect: () => {
+        state.confidence = "medium-high";
+      },
       text:
         "You attend the legal sync.\n\nIt’s fine. Everyone is human. Mostly.\n\nYou leave with three safe phrases and a renewed respect for commas.",
-      choices: [
-        { label: "Rewrite accordingly and ship.", to: "endingApproved" }
-      ]
+      choices: [{ label: "Rewrite accordingly and ship.", to: "endingApproved" }]
     },
 
     reschedule: {
-      effect: () => { state.confidence = "temporary"; state.rounds += 1; state.scope = "volcanic"; },
+      effect: () => {
+        state.confidence = "temporary";
+        state.scope = "volcanic";
+      },
       text:
         "You reschedule indefinitely.\n\nLegal does not buy your attempt at calendar jazz.\n\nA new invite arrives: “Legal Sync (now).”",
       choices: [
@@ -242,7 +265,7 @@
     endingApproved: {
       ending: "approved",
       text:
-        "✅ Ending: Approved in (almost) one round.\n\nYou ship. It gets approved. Someone says “Nice work” in Teams.\n\nYou live to see another day.\n\nNice work.",
+        "✅ Ending: Approved in (almost) one round.\n\nYou ship. It gets approved.\n\nYou live to see another day.\n\nNice work.",
       choices: [{ label: "Play again", to: "start" }]
     },
 
@@ -263,7 +286,7 @@
     endingVersioning: {
       ending: "versions",
       text:
-        "🌀 Ending: 12 Versions Later.\n\nYou deliver all versions.\n\nA stakeholder asks for “one more, but slightly friendlier.”\n\nYou briefly leave your body and return with a smile.",
+        "🌀 Ending: 12 Versions Later.\n\nYou deliver all versions.\n\nA stakeholder asks for “one more, but slightly friendlier.”\n\nYou wonder if losing your versionity was this annoying for other people.",
       choices: [{ label: "Play again", to: "start" }]
     },
 
@@ -329,18 +352,18 @@
   }
 
   function clearStatus() {
-    els.status.textContent = "";
+    if (els.status) els.status.textContent = "";
   }
 
   function setStatus(msg) {
+    if (!els.status) return;
     els.status.textContent = msg;
     setTimeout(clearStatus, 1500);
   }
 
   function setRunId() {
-    // short, friendly
     const id = Math.random().toString(16).slice(2, 6).toUpperCase();
-    els.runId.textContent = "Run " + id;
+    if (els.runId) els.runId.textContent = "Run " + id;
   }
 
   function loadFromURL() {
@@ -363,49 +386,54 @@
     if (typeof node.effect === "function") node.effect();
     if (node.ending) state.ending = node.ending;
 
-    els.text.textContent = node.text;
-    els.choices.innerHTML = "";
+    if (els.text) els.text.textContent = node.text;
+    if (els.choices) els.choices.innerHTML = "";
 
-    node.choices.forEach((c) => {
+    (node.choices || []).forEach((c) => {
       const li = document.createElement("li");
       const btn = document.createElement("button");
       btn.type = "button";
       btn.textContent = c.label;
+
       btn.addEventListener("click", () => {
-        // small sense of “progress”
-        if (!story[c.to]?.ending) state.rounds += 1;
+        // Count rounds only here (one per choice)
+        state.rounds += 1;
         renderMeta();
         updateURL(c.to);
         go(c.to);
       });
+
       li.appendChild(btn);
-      els.choices.appendChild(li);
+      if (els.choices) els.choices.appendChild(li);
     });
 
     renderMeta();
   }
 
-  els.restart.addEventListener("click", () => {
-    state.confidence = "medium";
-    state.rounds = 0;
-    state.scope = "contained";
-    state.ending = null;
-    setRunId();
-    updateURL("start");
-    go("start");
-    setStatus("Restarted.");
-  });
+  if (els.restart) {
+    els.restart.addEventListener("click", () => {
+      state.confidence = "medium";
+      state.rounds = 0;
+      state.scope = "contained";
+      state.ending = null;
+      setRunId();
+      updateURL("start");
+      go("start");
+      setStatus("Restarted.");
+    });
+  }
 
-  els.copyEnding.addEventListener("click", async () => {
-    const url = new URL(location.href);
-    // keep current node in URL
-    try {
-      await navigator.clipboard.writeText(url.toString());
-      setStatus("Link copied.");
-    } catch {
-      setStatus("Couldn’t copy. (Browsers are like that.)");
-    }
-  });
+  if (els.copyEnding) {
+    els.copyEnding.addEventListener("click", async () => {
+      const url = new URL(location.href);
+      try {
+        await navigator.clipboard.writeText(url.toString());
+        setStatus("Link copied.");
+      } catch {
+        setStatus("Couldn’t copy. (Browsers are like that.)");
+      }
+    });
+  }
 
   // Init
   setRunId();
