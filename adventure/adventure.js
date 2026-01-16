@@ -342,7 +342,7 @@
     restart: document.getElementById("restart"),
     copyEnding: document.getElementById("copy-ending"),
     status: document.getElementById("status"),
-    : document.getElementById("run-id")
+    runId: document.getElementById("run-id")
   };
 
   function renderMeta() {
