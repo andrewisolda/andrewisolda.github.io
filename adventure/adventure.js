@@ -342,7 +342,7 @@
     restart: document.getElementById("restart"),
     copyEnding: document.getElementById("copy-ending"),
     status: document.getElementById("status"),
-    runId: document.getElementById("run-id")
+    : document.getElementById("run-id")
   };
 
   function renderMeta() {
@@ -363,7 +363,7 @@
 
   function setRunId() {
     const id = Math.random().toString(16).slice(2, 6).toUpperCase();
-    if (els.runId) els.runId.textContent = "Run " + id;
+    if (els.runId) els.runId.textContent = "Session " + id;
   }
 
   function loadFromURL() {
