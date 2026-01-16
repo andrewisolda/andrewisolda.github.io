@@ -88,10 +88,12 @@ a {
 a:hover {
   text-decoration: none;
 }
-.rainbow-link {
+..rainbow-link {
   font-weight: 600;
   text-decoration: underline;
-
+  color: #7c6cff;
+}
+.rainbow-link:hover {
   background: linear-gradient(
     90deg,
     #ff004c,
@@ -102,23 +104,19 @@ a:hover {
     #8a2be2,
     #ff004c
   );
-  background-size: 300% 100%;
+  background-size: 200% 100%;
 
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
 
-  animation: rainbowShift 8s linear infinite;
+  animation: rainbowShift 1.5s linear forwards;
 }
 
 @keyframes rainbowShift {
-  from {
-    background-position: 0% 50%;
-  }
-  to {
-    background-position: 100% 50%;
-  }
+  from { background-position: 0% 50%; }
+  to   { background-position: 100% 50%; }
 }
 
 /* ------------------------------
