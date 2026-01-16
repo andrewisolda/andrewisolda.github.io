@@ -91,6 +91,7 @@ a:hover {
 .rainbow-link {
   font-weight: 600;
   text-decoration: underline;
+
   background: linear-gradient(
     90deg,
     #ff004c,
@@ -102,16 +103,22 @@ a:hover {
     #ff004c
   );
   background-size: 300% 100%;
+
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  -webkit-text-fill-color: transparent; /* add this */
-  animation: rainbowShift 3s linear infinite;
+  -webkit-text-fill-color: transparent;
+
+  animation: rainbowShift 8s linear infinite;
 }
 
 @keyframes rainbowShift {
-  0%   { background-position: 0% 50%; }
-  100% { background-position: 100% 50%; }
+  from {
+    background-position: 0% 50%;
+  }
+  to {
+    background-position: 100% 50%;
+  }
 }
 
 /* ------------------------------
