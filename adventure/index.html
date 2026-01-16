@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Adventure — Andrew Isolda</title>
+  <meta name="description" content="A text adventure about briefs, feedback, and survival." />
+  <link rel="stylesheet" href="/styles.css?v=2" />
+
+  <!-- Prevent theme flash -->
+  <script>
+    (function () {
+      const saved = localStorage.getItem("theme");
+      if (saved) document.documentElement.setAttribute("data-theme", saved);
+    })();
+  </script>
+
+  <style>
+    .panel {
+      border: 1px solid var(--rule);
+      border-radius: 10px;
+      padding: 1rem;
+      margin: 0.75rem 0;
+    }
+    .choices {
+      list-style: none;
+      padding-left: 0;
+      margin: 0.75rem 0 0 0;
+    }
+    .choices li { margin: 0.5rem 0; }
+    .choices button {
+      width: 100%;
+      text-align: left;
+      border: 1px solid var(--rule);
+      padding: 0.6rem 0.75rem;
+      border-radius: 10px;
+      background: none;
+      font: inherit;
+      color: inherit;
+      cursor: pointer;
+    }
+    .choices button:hover {
+      border-color: var(--muted);
+    }
+    .meta-line {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      align-items: center;
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-top: 0.75rem;
+    }
+    .pill {
+      border: 1px solid var(--rule);
+      border-radius: 999px;
+      padding: 0.1rem 0.5rem;
+    }
+    .row {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .quiet-link {
+      text-decoration: none;
+    }
+    .quiet-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <p class="row">
+      <a href="/" class="quiet-link">← Back home</a>
+      <span class="pill" id="run-id" aria-label="run id"></span>
+    </p>
+
+    <h1>The Brief</h1>
+    <p>
+      An interactive story about client feedback, notes, and knowing when and how to ask questions. Will you crush it, or will you crumble?
+    </p>
+
+    <div class="panel" role="region" aria-live="polite">
+      <p id="text" style="margin:0 0 0.75rem 0;"></p>
+      <ul id="choices" class="choices"></ul>
+      <div class="meta-line">
+        <span class="pill">Confidence: <span id="confidence">medium</span></span>
+        <span class="pill">Rounds: <span id="rounds">0</span></span>
+        <span class="pill">Scope: <span id="scope">contained</span></span>
+      </div>
+    </div>
+
+    <p class="row">
+      <button id="restart" type="button">Restart</button>
+      <button id="copy-ending" type="button">Copy ending link</button>
+      <span id="status" class="meta"></span>
+    </p>
+  </main>
+
+  <footer style="text-align:center;">
+    <button id="theme-toggle" type="button">Dark mode</button>
+  </footer>
+
+  <script src="/adventure/adventure.js"></script>
+  <script src="/theme-toggle.js"></script>
+</body>
+</html>
