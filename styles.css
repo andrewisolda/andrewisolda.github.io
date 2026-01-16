@@ -105,6 +105,7 @@ a:hover {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  -webkit-text-fill-color: transparent; /* add this */
   animation: rainbowShift 3s linear infinite;
 }
 
