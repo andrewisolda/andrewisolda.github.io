@@ -17,7 +17,7 @@ function ensureOverlay() {
     <canvas id="egg-canvas"></canvas>
     <div id="egg-ui">
       <div id="egg-hint">
-        <strong>3D Mode!</strong><br />
+        <strong>3D Zone!</strong><br />
         Drag to rotate • Scroll to zoom • Esc to exit
       </div>
       <button id="egg-close" type="button" aria-label="Close">Close</button>
@@ -126,7 +126,7 @@ async function openEasterEgg() {
   scene.add(group);
 
   const message =
-    "Congratulations, you found the secret. What are you doing poking around my site, anyway?";
+    "Congratulations! You found the 3D Zone. What are you doing poking around my site, anyway?";
 
   const tex = makeMessageTexture(THREE, message);
 
