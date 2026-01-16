@@ -88,6 +88,30 @@ a {
 a:hover {
   text-decoration: none;
 }
+.rainbow-link {
+  font-weight: 600;
+  text-decoration: underline;
+  background: linear-gradient(
+    90deg,
+    #ff004c,
+    #ff7a00,
+    #ffd400,
+    #00d084,
+    #00a3ff,
+    #8a2be2,
+    #ff004c
+  );
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: rainbowShift 3s linear infinite;
+}
+
+@keyframes rainbowShift {
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
 
 /* ------------------------------
    Lists
