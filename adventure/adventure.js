@@ -58,7 +58,7 @@
 
     threeOptions: {
       text:
-        "You deliver three options.\n\nThey choose… a fourth option. “Can we combine #1’s clarity, #2’s tone, and #3’s energy, but shorter?”\n\nYou let out a resigned sigh.",
+        "You deliver three options.\n\nThey choose a fourth. “Can we combine #1’s clarity, #2’s tone, and #3’s energy, but shorter?”\n\nYou let out a resigned sigh.",
       choices: [
         { label: "Reframe: propose a single north-star line + supporting points.", to: "northStar" },
         { label: "Agree and start blending ideas together, like some sort of idea smoothie.", to: "smoothie" }
@@ -70,7 +70,7 @@
         state.confidence = "high";
       },
       text:
-        "You build a messaging hierarchy.\n\nStakeholder: “Wow. Good stuff. Can we add 11 more benefits?”\n\nYou think back to that circular breathing technique your therapist taught you. In for four, out for eight.\n\nThat's a little better.",
+        "You build a messaging hierarchy.\n\nStakeholder: “Good start. Can we add 11 more benefits?”\n\nYou think back to that circular breathing technique your therapist taught you. In for four, out for eight.\n\nThat's a little better.",
       choices: [
         { label: "Offer a cutline: 'If everything is important, nothing is.'", to: "cutline" },
         { label: "Add the benefits and quietly reduce font size. That should hold them off.", to: "reduceFont" }
@@ -91,7 +91,7 @@
         state.scope = "expanding";
       },
       text:
-        "The Adderall is doing its thing. An unearned sense of confidence sprouts from deep within, making you feel warm and fuzzy.\n\nYou write fast, not even stopping to check what you're putting on the page.\n\nFuck it, let's see what they think.\n\nFeedback arrives shortly after: “This is great. Can we make it more premium but also more approachable, and also funnier but less casual?”",
+        "The Adderall is doing its thing. An unearned sense of confidence sprouts from deep within, making you feel warm and fuzzy.\n\nYou write fast, not even stopping to check what you're putting on the page.\n\nFuck it, let's send it and see what they think.\n\nFeedback arrives shortly after: “This is great. Can we make it more premium but also more approachable, and also funnier but less casual?”",
       choices: [
         { label: "Translate feedback into 2 concrete edits and confirm.", to: "translateFeedback" },
         { label: "Say “Totally” and open the thesaurus like a cursed book.", to: "thesaurus" }
@@ -244,7 +244,7 @@
         state.confidence = "medium-high";
       },
       text:
-        "You attend the legal sync.\n\nIt’s fine. Everyone is human. Mostly.\n\nYou leave with three safe phrases and a renewed respect for commas.",
+        "You attend the legal sync.\n\nIt’s fine. Everyone is human. Mostly.\n\nYou leave with three safe phrases and a renewed respect for the word 'can' vs. 'will.'",
       choices: [{ label: "Rewrite accordingly and ship.", to: "endingApproved" }]
     },
 
