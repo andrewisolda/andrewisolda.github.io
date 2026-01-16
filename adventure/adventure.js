@@ -13,7 +13,7 @@
       choices: [
         { label: "Ask clarifying questions like an adult.", to: "clarify" },
         { label: "Say “Absolutely” and immediately open a blank doc.", to: "blankDoc" },
-        { label: "Reply with “Love it” and hope that buys you some time", to: "loveIt" }
+        { label: "Reply with “Love it” and hope that buys you some time.", to: "loveIt" }
       ]
     },
 
@@ -23,7 +23,7 @@
         state.scope = "contained-ish";
       },
       text:
-        "You ask for more context that was conspicuously absent from the brief they sent: audience, CTA, channel, and a slightly-reworded version of “what the hell are we actually trying to do here?”\n\nA miracle occurs: they answer. Not fully, but it's enough to work with...probably.",
+        "You ask for context that was conspicuously absent from the brief they sent: audience, CTA, channel, and a slightly-reworded version of “what the hell are we actually trying to do here?”\n\nA miracle occurs: they answer. Not fully, but it's enough to work with...probably.",
       choices: [
         { label: "Draft three options: safe, smart, spicy.", to: "threeOptions" },
         { label: "Build a messaging hierarchy—don't want to put the cart before the horse, right?", to: "hierarchy" }
@@ -265,71 +265,71 @@
     endingApproved: {
       ending: "approved",
       text:
-        "✅ Ending: Approved in (almost) one round.\n\nYou ship. It gets approved.\n\nYou live to see another day.\n\nNice work.",
-      choices: [{ label: "Play again", to: "start" }]
+        "Ending: Approved in (almost) one round.\n\nYou ship. It gets approved.\n\nYou live to see another day.\n\nNice work.",
+      choices: [{ label: "Play again", to: "start", count: false }]
     },
 
     endingHero: {
       ending: "hero",
       text:
-        "🏆 Ending: The One Good Question.\n\nYour single clarifying question prevented three weeks of scope creep.\n\nSomewhere, a project manager feels a sudden warmth. They don’t know why.",
-      choices: [{ label: "Play again", to: "start" }]
+        "Ending: The One Good Question.\n\nYour single clarifying question prevented three weeks of scope creep.\n\nSomewhere, a project manager feels a sudden warmth. They don’t know why.",
+      choices: [{ label: "Play again", to: "start", count: false }]
     },
 
     endingMatrix: {
       ending: "matrix",
       text:
-        "✅ Ending: The Matrix.\n\nYou propose a simple versioning matrix. Everyone agrees.\n\nYou remain a person, not a content vending machine. You'll take that as a win any day.",
-      choices: [{ label: "Play again", to: "start" }]
+        "Ending: The Matrix.\n\nYou propose a simple versioning matrix. Everyone agrees.\n\nYou remain a person, not a content vending machine. You'll take that as a win any day.",
+      choices: [{ label: "Play again", to: "start", count: false }]
     },
 
     endingVersioning: {
       ending: "versions",
       text:
-        "🌀 Ending: 12 Versions Later.\n\nYou deliver all versions.\n\nA stakeholder asks for “one more, but slightly friendlier.”\n\nYou wonder if losing your versionity was this annoying for other people.",
-      choices: [{ label: "Play again", to: "start" }]
+        "Ending: 12 Versions Later.\n\nYou deliver all versions.\n\nA stakeholder asks for “one more, but slightly friendlier.”\n\nYou wonder if losing your versionity was this annoying for other people.",
+      choices: [{ label: "Play again", to: "start", count: false }]
     },
 
     endingSystem: {
       ending: "system",
       text:
-        "✅ Ending: The System Thinker.\n\nYou turn extra benefits into a follow-up asset.\n\nStakeholder: “This is so helpful.”\n\nYou: “Thank you.” (You mean it. Mostly.)",
-      choices: [{ label: "Play again", to: "start" }]
+        "Ending: The System Thinker.\n\nYou turn extra benefits into a follow-up asset.\n\nStakeholder: “This is so helpful.”\n\nYou: “Thank you.” (You mean it. Mostly.)",
+      choices: [{ label: "Play again", to: "start", count: false }]
     },
 
     endingSplit: {
       ending: "split",
       text:
-        "✅ Ending: The Two-Slide Solution.\n\nYou split the content. Everything breathes.\n\nSomeone says “Now it pops.”\n\nYou accept your new identity as a Pop Star.",
-      choices: [{ label: "Play again", to: "start" }]
+        "Ending: The Two-Slide Solution.\n\nYou split the content. Everything breathes.\n\nSomeone says “Now it pops.”\n\nYou accept your new identity as a Pop Star.",
+      choices: [{ label: "Play again", to: "start", count: false }]
     },
 
     endingTinyType: {
       ending: "tinytype",
       text:
-        "⚠️ Ending: Small Font Energy.\n\nYou reduce the font. Again.\n\nYou’ve created an award-winning slide that can only be read by ants.",
-      choices: [{ label: "Play again", to: "start" }]
+        "Ending: Small Font Energy.\n\nYou reduce the font. Again.\n\nYou’ve created an award-winning slide that can only be read by ants.",
+      choices: [{ label: "Play again", to: "start", count: false }]
     },
 
     endingOutline: {
       ending: "outline",
       text:
-        "🗂️ Ending: Outline Eternal.\n\nYou keep outlining.\n\nThe deadline arrives, impressed by your structure but unconvinced by its usefulness.",
-      choices: [{ label: "Play again", to: "start" }]
+        "Ending: Outline Eternal.\n\nYou keep outlining.\n\nThe deadline arrives, impressed by your structure but unconvinced by its usefulness.",
+      choices: [{ label: "Play again", to: "start", count: false }]
     },
 
     endingCandle: {
       ending: "candle",
       text:
-        "🕯️ Ending: Luxury Candle Brand.\n\nYour copy is now ‘elevated.’\n\nNo one knows what it means, but it smells expensive.\n\nLegal approves, because legal also enjoys candles.",
-      choices: [{ label: "Play again", to: "start" }]
+        "Ending: Luxury Candle Brand.\n\nYour copy is now ‘elevated.’\n\nNo one knows what it means, but it smells expensive.\n\nLegal approves, because legal also enjoys candles.",
+      choices: [{ label: "Play again", to: "start", count: false }]
     },
 
     endingGoats: {
       ending: "goats",
       text:
-        "🐐 Ending: The Goat Farm.\n\nYou quit your job and start a goat farm. At least the goats don't have strong opinions about CTAs.\n\nOddly, the client still emails you.",
-      choices: [{ label: "Play again", to: "start" }]
+        "Ending: The Goat Farm.\n\nYou quit your job and start a goat farm. At least the goats don't have strong opinions about CTAs.\n\nOddly, the client still emails you.",
+      choices: [{ label: "Play again", to: "start", count: false }]
     }
   };
 
