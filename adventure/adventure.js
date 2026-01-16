@@ -9,7 +9,7 @@
   const story = {
     start: {
       text:
-        "9:02 AM. Your laptop pings you with a notification for an email marked URGENT. You hesitantly open Outlook. “Need copy for this product brief. Make it pop. Can you get it to us by EOD?”\n\nAttachment: brief_vFINAL_final2_reallyfinal.docx",
+        "9:02 AM. Your laptop pings you with a notification for an email from your client marked URGENT. You hesitantly open Outlook. “Need copy for this product brief. Make it pop. Can you get it to us by EOD?”\n\nAttachment: brief_vFINAL_final2_reallyfinal.docx",
       choices: [
         { label: "Ask clarifying questions like an adult.", to: "clarify" },
         { label: "Say “Absolutely” and immediately open a blank doc.", to: "blankDoc" },
@@ -49,7 +49,7 @@
         state.scope = "mystery";
       },
       text:
-        "You reply “Love it.”\n\nStakeholder replies: “Amazing. Also legal has feedback already.”\n\nTime: 9:06 AM. Great start.",
+        "You reply “Love it.”\n\nThe client replies: “Amazing. Also legal has feedback already.”\n\nTime: 9:06 AM. Great start.",
       choices: [
         { label: "Ask what legal is optimizing for.", to: "legalOptimizing" },
         { label: "Pretend legal feedback is optional.", to: "pretendOptional" }
@@ -70,7 +70,7 @@
         state.confidence = "high";
       },
       text:
-        "You build a messaging hierarchy.\n\nStakeholder: “Good start. Can we add 11 more benefits?”\n\nYou think back to that circular breathing technique your therapist taught you. In for four, out for eight.\n\nThat's a little better.",
+        "You build a messaging hierarchy.\n\nClient: “Good start. Can we add 11 more benefits?”\n\nYou think back to that circular breathing technique your therapist taught you. In for four, out for eight.\n\nThat's a little better.",
       choices: [
         { label: "Offer a cutline: 'If everything is important, nothing is.'", to: "cutline" },
         { label: "Add the benefits and quietly reduce font size. That should hold them off.", to: "reduceFont" }
@@ -103,7 +103,7 @@
         state.confidence = "medium-high";
       },
       text:
-        "You ask what legal is optimizing for.\n\nLegal responds with a list of forbidden words.\n\nSurprisingly, you can still say something. You just have to… vaguely gesture at it.",
+        "You ask what legal is optimizing for.\n\nLegal responds with a list of forbidden words.\n\nSurprisingly, you can still say something. You just have to vaguely gesture at it.",
       choices: [
         { label: "Rewrite with ‘could help’ energy and cleaner claims.", to: "safeClaims" },
         { label: "Move the bold promise to a subhead and let proof do the talking.", to: "proofTalk" }
@@ -142,7 +142,7 @@
         state.scope = "expanding";
       },
       text:
-        "You blend the options.\n\nIt’s workable.\n\nStakeholder: “Great. Now can we do 12 versions for different audiences?”\n\nYou feel a migraine coming on.",
+        "You blend the options.\n\nIt’s workable.\n\nClient: “Great. Now can we do 12 versions for different audiences?”\n\nYou feel a migraine coming on.",
       choices: [
         { label: "Push back with a simple matrix and a plan.", to: "endingMatrix" },
         { label: "Say yes and version like you've never versioned before.", to: "endingVersioning" }
@@ -154,7 +154,7 @@
         state.confidence = "high";
       },
       text:
-        "You say, gently: “If everything is important, nothing is.”\n\nSilence.\n\nThey reply: “That’s fair.”\n\nYou have successfully negotiated with reality.",
+        "You reply, gently: “If everything is important, nothing is.”\n\nThey reply: “That’s fair.”\n\nYou have successfully negotiated with reality.",
       choices: [
         { label: "Prioritize 3 benefits and ship.", to: "endingApproved" },
         { label: "Turn the rest into a follow-up asset.", to: "endingSystem" }
@@ -167,7 +167,7 @@
         state.scope = "expanding";
       },
       text:
-        "You add the benefits. The product brief now looks like it’s whispering.\n\nSomeone says: “Can we make it pop?”",
+        "You add the benefits. The product brief now looks like it’s whispering.\n\nSomeone in the chain asks: “Can we make it pop?”",
       choices: [
         { label: "Recommend splitting into two slides.", to: "endingSplit" },
         { label: "Accept the fact that you're giving Small Font Energy.", to: "endingTinyType" }
@@ -179,7 +179,7 @@
         state.confidence = "medium-high";
       },
       text:
-        "You send a direction with rationale.\n\nStakeholder replies: “Love the thinking.”\n\nYour work has been perceived. Nice.",
+        "You send a direction with rationale.\n\nClient replies: “Love the thinking.”\n\nYour work has been perceived. Cool.",
       choices: [
         { label: "Write the draft with guardrails.", to: "endingApproved" },
         { label: "Ask for one more constraint to keep it clean.", to: "endingHero" }
@@ -214,7 +214,7 @@
         state.scope = "chaos";
       },
       text:
-        "You consult the thesaurus.\n\nNow everything sounds like a luxury candle brand.\n\nStakeholder: “This feels… expensive.”\n\nYou are not sure that’s good.",
+        "You consult the thesaurus.\n\nNow everything sounds like a luxury candle brand.\n\nClient: “This feels… expensive.”\n\nYou are not sure that’s good.",
       choices: [
         { label: "Pull it back to plain language + strong proof.", to: "proofTalk" },
         { label: "Double down. Become the candle.", to: "endingCandle" }
@@ -235,7 +235,7 @@
         state.confidence = "high";
       },
       text:
-        "You let proof do the talking.\n\nLess promise, more receipts.\n\nEveryone nods. This is the closest thing to peace.",
+        "You let proof do the talking.\n\nLess promise, more receipts.\n\nEveryone agrees. This is the closest thing to peace.",
       choices: [{ label: "Ship it.", to: "endingApproved" }]
     },
 
@@ -244,7 +244,7 @@
         state.confidence = "medium-high";
       },
       text:
-        "You attend the legal sync.\n\nIt’s fine. Everyone is human. Mostly.\n\nYou leave with three safe phrases and a renewed respect for the word 'can' vs. 'will.'",
+        "You attend the legal sync.\n\nIt’s fine. Everyone is human. Mostly.\n\nYou leave with three safe phrases and a newfound respect for the word 'can' vs. 'will.'",
       choices: [{ label: "Rewrite accordingly and ship.", to: "endingApproved" }]
     },
 
@@ -272,28 +272,28 @@
     endingHero: {
       ending: "hero",
       text:
-        "Ending: The One Good Question.\n\nYour single clarifying question prevented three weeks of scope creep.\n\nSomewhere, a project manager feels a sudden warmth. They don’t know why.",
+        "Ending: The One Good Question.\n\nYour single clarifying question prevented three weeks of scope creep.\n\nYour project manager feels a sudden warmth. They don’t know why.",
       choices: [{ label: "Play again", to: "start", count: false }]
     },
 
     endingMatrix: {
       ending: "matrix",
       text:
-        "Ending: The Matrix.\n\nYou propose a simple versioning matrix. Everyone agrees.\n\nYou remain a person, not a content vending machine. You'll take that as a win any day.",
+        "Ending: The Matrix.\n\nYou propose a simple versioning matrix. Everyone agrees.\n\nYou'll take that as a win any day.",
       choices: [{ label: "Play again", to: "start", count: false }]
     },
 
     endingVersioning: {
       ending: "versions",
       text:
-        "Ending: 12 Versions Later.\n\nYou deliver all versions.\n\nA stakeholder asks for “one more, but slightly friendlier.”\n\nYou wonder if losing your versionity was this annoying for other people.",
+        "Ending: 12 Versions Later.\n\nYou deliver all versions.\n\nThe client asks for “one more, but slightly friendlier.”\n\nYou wonder if losing your versionity was this annoying for other people.",
       choices: [{ label: "Play again", to: "start", count: false }]
     },
 
     endingSystem: {
       ending: "system",
       text:
-        "Ending: The System Thinker.\n\nYou turn extra benefits into a follow-up asset.\n\nStakeholder: “This is so helpful.”\n\nYou: “Thank you.” (You mean it. Mostly.)",
+        "Ending: The System Thinker.\n\nYou turn extra benefits into a follow-up asset.\n\nClient: “This is so helpful.”\n\nYou: “Thank you.” (You mean it. Mostly.)",
       choices: [{ label: "Play again", to: "start", count: false }]
     },
 
@@ -307,7 +307,7 @@
     endingTinyType: {
       ending: "tinytype",
       text:
-        "Ending: Small Font Energy.\n\nYou reduce the font. Again.\n\nYou’ve created an award-winning slide that can only be read by ants.",
+        "Ending: Small Font Energy.\n\nYou reduce the font. Again.\n\nYou’ve created an award-winning deliverable that can only be read by ants.",
       choices: [{ label: "Play again", to: "start", count: false }]
     },
 
