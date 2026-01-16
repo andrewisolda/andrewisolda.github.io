@@ -396,12 +396,15 @@
       btn.textContent = c.label;
 
       btn.addEventListener("click", () => {
-        // Count rounds only here (one per choice)
-        state.rounds += 1;
-        renderMeta();
-        updateURL(c.to);
-        go(c.to);
-      });
+  // Only count rounds if this choice allows it
+  if (c.count !== false) {
+    state.rounds += 1;
+  }
+
+  renderMeta();
+  updateURL(c.to);
+  go(c.to);
+});
 
       li.appendChild(btn);
       if (els.choices) els.choices.appendChild(li);
