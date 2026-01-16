@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AT&amp;T — Case Study — Andrew Isolda</title>
+  <meta name="description" content="AT&T case study: turning enterprise product complexity into clarity." />
+
+  <style>
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      padding: 1.25rem;
+      font: 16px/1.55 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      color: #111;
+      background: #fff;
+    }
+    main { max-width: 42rem; }
+    h1 { font-size: 1.6rem; margin: 0 0 0.5rem 0; }
+    h2 { font-size: 1.05rem; margin: 1rem 0 0.25rem 0; }
+    p { margin: 0 0 1rem 0; }
+    a { color: inherit; }
+    a:hover { text-decoration: none; }
+    hr { border: 0; border-top: 1px solid #ddd; margin: 1rem 0; }
+    .meta { color: #444; }
+  </style>
+</head>
+
+<body>
+  <main>
+    <p><a href="/case-studies/">← Back to case studies</a></p>
+
+    <h1>AT&amp;T — Turning complexity into clarity</h1>
+    <p class="meta"><strong>Role:</strong> Copywriter / Content Strategist<br />
+      <strong>Deliverable:</strong> Enterprise product brief<br />
+      <strong>Audience:</strong> Enterprise and public sector decision-makers
+    </p>
+
+    <hr />
+
+    <h2>The problem</h2>
+    <p>
+      AT&amp;T’s Connected Solutions offering brought together multiple IoT capabilities—connectivity,
+      management, visibility, and control—into a single platform. The value was real, but the story
+      wasn’t obvious.
+    </p>
+    <p>
+      For prospective customers, especially in the public sector, the problem was abstraction. “Unified IoT management” sounds fancy, but it doens't mean much to those outside the infotech space.
+    </p>
+
+    <h2>The challenge</h2>
+    <p>
+      Several constraints shaped the work: multiple stakeholder types, language that needed to
+      withstand legal and regulatory review, and a product that solved systems problems rather
+      than one-off pain points. The brief also needed to be scannable—not read linearly.
+    </p>
+    <p>
+      The risk was defaulting to familiar enterprise language without ever grounding it in real
+      operational outcomes.
+    </p>
+
+    <h2>The approach</h2>
+    <p>
+      I focused on structure first, language second. Instead of leading with features, the brief
+      was organized around what organizations need to do at scale: monitor assets, manage
+      connectivity, reduce downtime, and make informed decisions across environments.
+    </p>
+    <p>
+      Key decisions included translating capabilities into operational benefits, using plain language
+      even when buzzwords were available, designing sections to stand alone for quick scanning,
+      and leaving room for nuance rather than forcing certainty where it didn’t exist.
+    </p>
+
+    <h2>The outcome</h2>
+    <p>
+      The final brief functioned as a practical sales and enablement tool: something teams could
+      share with stakeholders without needing to contextualize every paragraph. More importantly,
+      it gave the product a story that reflected how enterprise buyers actually evaluate solutions—
+      carefully, comparatively, and with an eye toward long-term operability.
+    </p>
+
+    <hr />
+
+    <p>
+      <a href="/pdf/att-brief.pdf" target="_blank" rel="noopener noreferrer">View the product brief (PDF) →</a>
+    </p>
+  </main>
+</body>
+</html>
