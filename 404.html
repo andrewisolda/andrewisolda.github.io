@@ -30,10 +30,33 @@
 <body>
   <main>
     <h1>404</h1>
-    <p>This page doesn’t exist. But Reuben says hi.</p>
+
+    <p id="message">
+      This page doesn’t exist. But a cat says hi.
+    </p>
+
     <p><a href="/">Go back home</a></p>
-    
-    <img src="/img/reuben.jpg" alt="A very good cat" />
+
+    <img id="cat-image" src="/img/reuben.jpg" alt="A very good cat" />
   </main>
+
+  <script>
+    const cats = [
+      { name: "Reuben", file: "reuben.jpg" },
+      { name: "RJ", file: "rj.jpg" },
+      { name: "Addy", file: "addy.jpg" },
+      { name: "Bruce", file: "bruce.jpg" },
+      { name: "Mike", file: "mike.jpg" },
+      { name: "Revy", file: "revy.jpg" },
+      { name: "Smoky", file: "smoky.jpg" }
+    ];
+
+    const choice = cats[Math.floor(Math.random() * cats.length)];
+
+    document.getElementById("cat-image").src = `/img/${choice.file}`;
+    document.getElementById("cat-image").alt = `${choice.name}, a very good cat`;
+    document.getElementById("message").textContent =
+      `This page doesn’t exist. But ${choice.name} says hi.`;
+  </script>
 </body>
 </html>
