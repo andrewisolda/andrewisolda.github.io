@@ -17,7 +17,7 @@ function ensureOverlay() {
     <canvas id="egg-canvas"></canvas>
     <div id="egg-ui">
       <div id="egg-hint">
-        <strong>Add another dimension</strong><br />
+        <strong>3D Mode!</strong><br />
         Drag to rotate • Scroll to zoom • Esc to exit
       </div>
       <button id="egg-close" type="button" aria-label="Close">Close</button>
