@@ -9,7 +9,7 @@
   const story = {
     start: {
       text:
-        "9:02 AM. Your laptop pings you with a notification for an email from your client marked URGENT. You hesitantly open Outlook. “Need copy for this product brief. Make it pop. Can you get it to us by EOD?”\n\nAttachment: brief_vFINAL_final2_reallyfinal.docx",
+        "9:02 AM. Your laptop pings you with a notification for an email marked URGENT. You hesitantly open Outlook and are greeted with a message from a client. “Need copy for this product brief. Make it pop. Can you get it to us by EOD?”\n\nAttachment: brief_vFINAL_final2_reallyfinal.docx",
       choices: [
         { label: "Ask clarifying questions like an adult.", to: "clarify" },
         { label: "Say “Absolutely” and immediately open a blank doc.", to: "blankDoc" },
