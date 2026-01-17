@@ -36,9 +36,9 @@
         state.scope = "expanding";
       },
       text:
-        "You open a new Word doc, staring blankly at glowing void before you. It stares back.\n\nYou type a headline. Delete it. Type another. Delete it.\n\nShit. This used to be easier.\n\nYou can feel your computer judging you.",
+        "You open a new Word doc, staring blankly at the glowing void before you. It stares back.\n\nYou type a headline. Delete it. Type another. Delete it.\n\nShit. This used to be easier.\n\nYou can feel your computer judging you.",
       choices: [
-        { label: "Create a quick outline to stop the bleeding.", to: "outline" },
+        { label: "Piecemeal a quick outline to stop the bleeding.", to: "outline" },
         { label: "Pop an Adderall and write whatever comes to mind. If it worked for Kerouac, it'll work for you.", to: "tightenLater" }
       ]
     },
@@ -52,7 +52,7 @@
         "You reply “Love it.”\n\nThe client replies: “Amazing. Also legal has feedback already.”\n\nTime: 9:06 AM. Great start.",
       choices: [
         { label: "Ask what legal is optimizing for.", to: "legalOptimizing" },
-        { label: "Pretend legal feedback is optional.", to: "pretendOptional" }
+        { label: "Pretend legal feedback is optional and start writing.", to: "pretendOptional" }
       ]
     },
 
@@ -60,8 +60,8 @@
       text:
         "You deliver three options.\n\nThey choose a fourth. “Can we combine #1’s clarity, #2’s tone, and #3’s energy, but shorter?”\n\nYou let out a resigned sigh.",
       choices: [
-        { label: "Reframe: propose a single north-star line + supporting points.", to: "northStar" },
-        { label: "Agree and start blending ideas together, like some sort of idea smoothie.", to: "smoothie" }
+        { label: "Reframe: propose a single north-star line with supporting points.", to: "northStar" },
+        { label: "Agree and start blending ideas together into a delcious(?) idea smoothie.", to: "smoothie" }
       ]
     },
 
@@ -72,8 +72,8 @@
       text:
         "You build a messaging hierarchy.\n\nClient: “Good start. Can we add 11 more benefits?”\n\nYou think back to that circular breathing technique your therapist taught you. In for four, out for eight.\n\nThat's a little better.",
       choices: [
-        { label: "Offer a cutline: 'If everything is important, nothing is.'", to: "cutline" },
-        { label: "Add the benefits and quietly reduce font size. That should hold them off.", to: "reduceFont" }
+        { label: "Send a reply:'If everything is important, nothing is.'", to: "cutline" },
+        { label: "Add the benefits and quietly reduce the font size. That should hold them off.", to: "reduceFont" }
       ]
     },
 
@@ -91,10 +91,10 @@
         state.scope = "expanding";
       },
       text:
-        "The Adderall is doing its thing. An unearned sense of confidence sprouts from deep within, making you feel warm and fuzzy.\n\nYou write fast, not even stopping to check what you're putting on the page.\n\nFuck it, let's send it and see what they think.\n\nFeedback arrives shortly after: “This is great. Can we make it more premium but also more approachable, and also funnier but less casual?”",
+        "The Adderall is doing its thing. An unearned sense of confidence sprouts from deep within, making you feel warm and fuzzy.\n\nYou write fast. The page fills more quickly than you thought it would.\n\nFuck it, let's send it and see what they think.\n\nFeedback arrives shortly after: “This is great. Can we make it more premium but also more approachable, and also funnier but less casual?”",
       choices: [
         { label: "Translate feedback into 2 concrete edits and confirm.", to: "translateFeedback" },
-        { label: "Say “Totally” and open the thesaurus like a cursed book.", to: "thesaurus" }
+        { label: "Say “Totally” and crack open the thesaurus on your desk.", to: "thesaurus" }
       ]
     },
 
@@ -116,7 +116,7 @@
         state.scope = "chaos";
       },
       text:
-        "You pretend legal feedback is optional.\n\nIt is not.\n\nA calendar invite appears: “Legal Sync (30 min).\n\n”Welp. Looks like you gambled and lost.",
+        "You pretend legal feedback is optional and start writing.\n\nIt is not.\n\nAfter sending your draft, a calendar invite appears: “Legal Sync (30 min).\n\n”Welp. Looks like you gambled and lost.",
       choices: [
         { label: "Attend the sync. Bring your notebook and a slice of humble pie.", to: "legalSync" },
         { label: "Reschedule indefinitely. (Bold.)", to: "reschedule" }
@@ -154,7 +154,7 @@
         state.confidence = "high";
       },
       text:
-        "You reply, gently: “If everything is important, nothing is.”\n\nThey reply: “That’s fair.”\n\nYou have successfully negotiated with reality.",
+        "You reply, as gently as possible: “If everything is important, nothing is.”\n\nA response comes in: “That’s fair.”\n\nYou have successfully negotiated with reality.",
       choices: [
         { label: "Prioritize 3 benefits and ship.", to: "endingApproved" },
         { label: "Turn the rest into a follow-up asset.", to: "endingSystem" }
@@ -167,7 +167,7 @@
         state.scope = "expanding";
       },
       text:
-        "You add the benefits. The product brief now looks like it’s whispering.\n\nSomeone in the chain asks: “Can we make it pop?”",
+        "You add the benefits. The product brief now looks like it’s whispering.\n\nSomeone in the email chain asks: “Can we make it pop?”",
       choices: [
         { label: "Recommend splitting into two slides.", to: "endingSplit" },
         { label: "Accept the fact that you're giving Small Font Energy.", to: "endingTinyType" }
@@ -190,7 +190,7 @@
       text:
         "You say “In progress.”\n\nThey respond with a thumbs up.\n\nA thumbs up is not feedback, but it is technically a form of communication.",
       choices: [
-        { label: "Turn the outline into a draft.", to: "endingApproved" },
+        { label: "Turn the outline into a workable draft.", to: "endingApproved" },
         { label: "Continue outlining until the deadline outlines you.", to: "endingOutline" }
       ]
     },
@@ -201,7 +201,7 @@
         state.scope = "contained";
       },
       text:
-        "You translate feedback into two concrete changes and confirm.\n\nThey say: “Yes. Exactly.”\n\nYou look around to see if anyone witnessed this historic event.",
+        "You translate feedback into two concrete changes and confirm.\n\nThey say: “Perfect. Approved.”\n\nYou look around to see if anyone witnessed this historic event.",
       choices: [
         { label: "Implement changes and ship.", to: "endingApproved" },
         { label: "Add a second option for safety.", to: "endingHero" }
@@ -226,7 +226,7 @@
         state.confidence = "high";
       },
       text:
-        "You rewrite with safer claims and cleaner phrasing.\n\nLegal approves.\n\nYou feel your shoulders relax slightly.",
+        "You rewrite the product brief with safer claims and cleaner phrasing.\n\nLegal approves.\n\nYou feel your shoulders relax slightly.",
       choices: [{ label: "Ship it.", to: "endingApproved" }]
     },
 
@@ -244,7 +244,7 @@
         state.confidence = "medium-high";
       },
       text:
-        "You attend the legal sync.\n\nIt’s fine. Everyone is human. Mostly.\n\nYou leave with three safe phrases and a newfound respect for the word 'can' vs. 'will.'",
+        "You attend the legal sync.\n\nIt’s not as much of a bloodbath as you expected.\n\nYou leave with three safe phrases and a newfound respect for the word 'can' vs. 'will.'",
       choices: [{ label: "Rewrite accordingly and ship.", to: "endingApproved" }]
     },
 
@@ -265,7 +265,7 @@
     endingApproved: {
       ending: "approved",
       text:
-        "Ending: Approved in (almost) one round.\n\nYou ship. It gets approved.\n\nYou live to see another day.\n\nNice work.",
+        "Ending: Approved in (Almost) One Round.\n\nYou ship. It gets approved.\n\nYou live to see another day.\n\nNice work.",
       choices: [{ label: "Play again", to: "start", count: false }]
     },
 
