@@ -42,20 +42,6 @@
     .choices button:hover {
       border-color: var(--muted);
     }
-    .meta-line {
-      display: flex;
-      gap: 0.75rem;
-      flex-wrap: wrap;
-      align-items: center;
-      color: var(--muted);
-      font-size: 0.95rem;
-      margin-top: 0.75rem;
-    }
-    .pill {
-      border: 1px solid var(--rule);
-      border-radius: 999px;
-      padding: 0.1rem 0.5rem;
-    }
     .row {
       display: flex;
       gap: 0.75rem;
@@ -86,11 +72,6 @@
     <div class="panel" role="region" aria-live="polite">
       <p id="text" style="margin:0 0 0.75rem 0;"></p>
       <ul id="choices" class="choices"></ul>
-      <div class="meta-line">
-        <span class="pill">Confidence: <span id="confidence">medium</span></span>
-        <span class="pill">Rounds: <span id="rounds">0</span></span>
-        <span class="pill">Scope: <span id="scope">contained</span></span>
-      </div>
     </div>
 
     <p class="row">
