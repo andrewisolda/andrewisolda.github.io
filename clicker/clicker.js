@@ -25,7 +25,7 @@
       icon: '👤', 
       baseCost: 1100, 
       baseProduction: 10, 
-      desc: 'Eager, but needs supervision',
+      desc: 'Eager but needs supervision',
       color: '#4ECDC4'
     },
     { 
@@ -52,7 +52,7 @@
       icon: '🤖', 
       baseCost: 1400000, 
       baseProduction: 1000, 
-      desc: 'Needs heavy editing, but way faster than you',
+      desc: 'Needs heavy editing but fast',
       color: '#AA96DA'
     },
     { 
@@ -61,7 +61,7 @@
       icon: '💼', 
       baseCost: 20000000, 
       baseProduction: 5000, 
-      desc: 'Passive income, baby',
+      desc: 'Passive income baby',
       color: '#FFD93D'
     }
   ];
@@ -317,6 +317,7 @@
   }
 
   // Game loop
+  let lastRender = 0;
   function gameLoop() {
     const now = Date.now();
     const dt = (now - state.lastUpdate) / 1000;
@@ -343,7 +344,13 @@
     }
 
     updateDisplay();
-    renderGenerators();
+    
+    // Only re-render generators every 200ms to prevent button interference
+    if (now - lastRender > 200) {
+      renderGenerators();
+      lastRender = now;
+    }
+    
     checkAchievements();
 
     requestAnimationFrame(gameLoop);
