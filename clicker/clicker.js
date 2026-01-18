@@ -25,7 +25,7 @@
       icon: '👤', 
       baseCost: 1100, 
       baseProduction: 10, 
-      desc: 'Eager but needs supervision',
+      desc: 'Eager, but needs supervision',
       color: '#4ECDC4'
     },
     { 
@@ -43,7 +43,7 @@
       icon: '✨', 
       baseCost: 130000, 
       baseProduction: 200, 
-      desc: 'Has opinions about kerning',
+      desc: 'Has strong opinions about kerning',
       color: '#F38181'
     },
     { 
@@ -52,7 +52,7 @@
       icon: '🤖', 
       baseCost: 1400000, 
       baseProduction: 1000, 
-      desc: 'Needs heavy editing but fast',
+      desc: 'Needs heavy editing, but way faster than you',
       color: '#AA96DA'
     },
     { 
@@ -61,7 +61,7 @@
       icon: '💼', 
       baseCost: 20000000, 
       baseProduction: 5000, 
-      desc: 'Passive income baby',
+      desc: 'Passive income, baby',
       color: '#FFD93D'
     }
   ];
