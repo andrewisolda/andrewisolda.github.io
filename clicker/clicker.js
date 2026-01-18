@@ -100,7 +100,8 @@
   const els = {
     wordCount: document.getElementById('word-count'),
     wps: document.getElementById('wps'),
-    boost: document.getElementById('boost'),
+    boostBox: document.getElementById('boost-box'),
+    boostMult: document.getElementById('boost-mult'),
     totalWords: document.getElementById('total-words'),
     clicks: document.getElementById('clicks'),
     achievementsCount: document.getElementById('achievements-count'),
@@ -126,7 +127,7 @@
 
   function showNotification(content, type) {
     const notif = document.createElement('div');
-    notif.className = `notification ${type}`;
+    notif.className = 'notification';
     notif.innerHTML = content;
     document.body.appendChild(notif);
 
@@ -137,14 +138,9 @@
 
   function showAchievement(achievement) {
     showNotification(`
-      <div class="notification-content">
-        <span class="notification-icon">🏆</span>
-        <div>
-          <div class="notification-title">${achievement.name}</div>
-          <div class="notification-desc">${achievement.desc}</div>
-        </div>
-      </div>
-    `, 'achievement');
+      <div class="notification-title">🏆 ${achievement.name}</div>
+      <div class="notification-desc">${achievement.desc}</div>
+    `);
   }
 
   function checkAchievements() {
@@ -235,19 +231,13 @@
       button.onclick = () => buyGenerator(gen);
 
       button.innerHTML = `
-        <div class="generator-content">
-          <div class="generator-icon" style="background-color: ${gen.color}30;">
-            ${gen.icon}
-          </div>
-          <div class="generator-info">
-            <div class="generator-name">${gen.name}</div>
-            <div class="generator-desc">${gen.desc}</div>
-            <div class="generator-production">+${gen.baseProduction}/sec</div>
-          </div>
-          <div class="generator-cost-info">
-            <div class="generator-cost">${formatNumber(cost)}</div>
-            <div class="generator-owned">Owned: ${state.generators[gen.id]}</div>
-          </div>
+        <div class="generator-info">
+          <div class="generator-name">${gen.icon} ${gen.name}</div>
+          <div class="generator-desc">${gen.desc} (+${gen.baseProduction}/sec)</div>
+        </div>
+        <div class="generator-cost">
+          <div>${formatNumber(cost)}</div>
+          <div class="generator-owned">Owned: ${state.generators[gen.id]}</div>
         </div>
       `;
 
@@ -266,13 +256,8 @@
       div.className = `achievement-item ${unlocked ? 'unlocked' : ''}`;
       
       div.innerHTML = `
-        <div class="achievement-content">
-          ${unlocked ? '<span class="achievement-icon">🏆</span>' : ''}
-          <div class="achievement-info">
-            <div class="achievement-name ${unlocked ? 'unlocked' : 'locked'}">${ach.name}</div>
-            <div class="achievement-desc">${ach.desc}</div>
-          </div>
-        </div>
+        <div class="achievement-name">${unlocked ? '🏆 ' : ''}${ach.name}</div>
+        <div class="achievement-desc">${ach.desc}</div>
       `;
 
       els.achievementsList.appendChild(div);
@@ -282,16 +267,16 @@
   // Update display
   function updateDisplay() {
     els.wordCount.textContent = formatNumber(state.words);
-    els.wps.textContent = formatNumber(calculateWPS()) + '/sec';
+    els.wps.textContent = formatNumber(calculateWPS());
     els.totalWords.textContent = formatNumber(state.totalWords);
     els.clicks.textContent = state.clicks.toLocaleString();
     els.achievementsCount.textContent = `${state.achievements.size}/${ACHIEVEMENTS.length}`;
 
     if (state.eventMultiplier !== 1) {
-      els.boost.style.display = 'block';
-      els.boost.textContent = `×${state.eventMultiplier} BOOST!`;
+      els.boostBox.style.display = 'block';
+      els.boostMult.textContent = `×${state.eventMultiplier}`;
     } else {
-      els.boost.style.display = 'none';
+      els.boostBox.style.display = 'none';
     }
   }
 
@@ -307,11 +292,7 @@
       state.eventEndTime = Date.now() + event.duration * 1000;
     }
 
-    showNotification(`
-      <div class="notification-content">
-        <div class="notification-title">${event.text}</div>
-      </div>
-    `, `event-${event.type}`);
+    showNotification(`<div class="notification-title">${event.text}</div>`);
 
     updateDisplay();
   }
