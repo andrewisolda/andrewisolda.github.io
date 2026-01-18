@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Arcade</title>
+  <meta name="description" content="A small, unnecessary arcade mode." />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <canvas id="c"></canvas>
+
+  <div class="hud" aria-hidden="true">
+    <div class="hud__left">
+      <div class="title">ARCADE</div>
+      <div class="hint">WASD/Arrows to move • Mouse to aim • Click/hold to fire • Esc to exit</div>
+    </div>
+    <div class="hud__right">
+      <div>Score <span id="score">0</span></div>
+      <div>Best <span id="best">0</span></div>
+    </div>
+  </div>
+
+  <div class="overlay" id="overlay">
+    <div class="card">
+      <div class="card__title" id="ov-title">Click to start</div>
+      <div class="card__body" id="ov-body">
+        Move with WASD/Arrows. Aim with your mouse. Hold click to fire.
+      </div>
+      <div class="card__buttons">
+        <button id="btn-start" type="button">Start</button>
+        <a class="quiet" href="/">Back to site</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="./game.js"></script>
+</body>
+</html>
