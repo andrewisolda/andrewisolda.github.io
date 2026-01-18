@@ -1,42 +1,31 @@
 (function () {
   const state = {
-    confidence: "medium",
-    rounds: 0,
-    scope: "contained",
     ending: null
   };
 
   const story = {
     start: {
       text:
-        "9:02 AM. Your laptop pings you with a notification for an email marked URGENT. You hesitantly open Outlook and are greeted with a message from a client. “Need copy for this product brief. Make it pop. Can you get it to us by EOD?”\n\nAttachment: brief_vFINAL_final2_reallyfinal.docx",
+        "9:02 AM. Your laptop pings you with a notification for an email marked URGENT. You hesitantly open Outlook and are greeted with a message from an important client. \"Need copy for this product brief. Make it pop. Can you get it to us by EOD?\"\n\nAttachment: brief_vFINAL_final2_reallyfinal.docx",
       choices: [
         { label: "Ask clarifying questions like an adult.", to: "clarify" },
-        { label: "Say “Absolutely” and immediately open a blank doc.", to: "blankDoc" },
-        { label: "Reply with “Love it” and hope that buys you some time.", to: "loveIt" }
+        { label: "Say \"Absolutely\" and immediately open a blank doc.", to: "blankDoc" },
+        { label: "Reply with \"Love it\" and hope that buys you some time.", to: "loveIt" }
       ]
     },
 
     clarify: {
-      effect: () => {
-        state.confidence = "high";
-        state.scope = "contained-ish";
-      },
       text:
-        "You ask for context that was conspicuously absent from the brief they sent: audience, CTA, channel, and a slightly-reworded version of “what the hell are we actually trying to do here?”\n\nA miracle occurs: they answer. Not fully, but it's enough to work with...probably.",
+        "You ask for context that was conspicuously absent from the brief they sent: audience, CTA, channel, and a slightly-reworded version of \"what the hell are we actually trying to do here?\"\n\nA miracle occurs: they answer. Not fully, but it's enough to work with...probably.",
       choices: [
-        { label: "Draft three options: safe, smart, spicy.", to: "threeOptions" },
-        { label: "Build a messaging hierarchy—don't want to put the cart before the horse, right?", to: "hierarchy" }
+        { label: "No time for outlines—draft three options, each with different tones.", to: "threeOptions" },
+        { label: "Build a messaging hierarchy—don't want to get too ahead of yourself, right?", to: "hierarchy" }
       ]
     },
 
     blankDoc: {
-      effect: () => {
-        state.confidence = "medium-low";
-        state.scope = "expanding";
-      },
       text:
-        "You open a new Word doc, staring blankly at the glowing void before you. It stares back.\n\nYou type a headline. Delete it. Type another. Delete it.\n\nShit. This used to be easier.\n\nYou can feel your computer judging you.",
+        "You open a new Word doc. You stare blankly at the glowing void before you. It stares back.\n\nYou type a headline. Delete it. Type another. Delete it.\n\nShit. This used to be easier.\n\nYou can feel your computer judging you.",
       choices: [
         { label: "Piecemeal a quick outline to stop the bleeding.", to: "outline" },
         { label: "Pop an Adderall and write whatever comes to mind. If it worked for Kerouac, it'll work for you.", to: "tightenLater" }
@@ -44,12 +33,8 @@
     },
 
     loveIt: {
-      effect: () => {
-        state.confidence = "bold (incorrect)";
-        state.scope = "mystery";
-      },
       text:
-        "You reply “Love it.”\n\nThe client replies: “Amazing. Also legal has feedback already.”\n\nTime: 9:06 AM. Great start.",
+        "You reply \"Love it.\"\n\nThe client replies: \"Amazing. Also legal has notes they want to make sure are incorporated into the draft.\"\n\nTime: 9:06 AM. Great start.",
       choices: [
         { label: "Ask what legal is optimizing for.", to: "legalOptimizing" },
         { label: "Pretend legal feedback is optional and start writing.", to: "pretendOptional" }
@@ -58,203 +43,145 @@
 
     threeOptions: {
       text:
-        "You deliver three options.\n\nThey choose a fourth. “Can we combine #1’s clarity, #2’s tone, and #3’s energy, but shorter?”\n\nYou let out a resigned sigh.",
+        "You deliver three options.\n\nThey choose a fourth. \"Can we combine #1's clarity, #2's tone, and #3's energy, but shorter?\"\n\nYou let out a resigned sigh.",
       choices: [
-        { label: "Reframe: propose a single north-star line with supporting points.", to: "northStar" },
-        { label: "Agree and start blending ideas together into a delcious(?) idea smoothie.", to: "smoothie" }
+        { label: "Reframe your approach: propose a single north-star headline with supporting points that incorporate aspects from each option.", to: "northStar" },
+        { label: "Agree and start blending your copy together as if you're making the world's worst smoothie.", to: "smoothie" }
       ]
     },
 
     hierarchy: {
-      effect: () => {
-        state.confidence = "high";
-      },
       text:
-        "You build a messaging hierarchy.\n\nClient: “Good start. Can we add 11 more benefits?”\n\nYou think back to that circular breathing technique your therapist taught you. In for four, out for eight.\n\nThat's a little better.",
+        "You build a messaging hierarchy.\n\nClient: \"Good start. Can we add 11 more benefits?\"\n\nYou think back to that circular breathing technique your therapist taught you. In for four, out for eight.\n\nThat's a little better.",
       choices: [
-        { label: "Send a reply:'If everything is important, nothing is.'", to: "cutline" },
-        { label: "Add the benefits and quietly reduce the font size. That should hold them off.", to: "reduceFont" }
+        { label: "Send a reply: 'If everything is important, nothing is.'", to: "cutline" },
+        { label: "Add the additional benefits and quietly reduce the font size. That should hold them off.", to: "reduceFont" }
       ]
     },
 
     outline: {
       text:
-        "You outline: audience → promise → proof → CTA.\n\nIt’s not glamorous, but neither is filing for unemployment.\n\nThe client pings you again: “How's it coming along?”",
+        "Searching for inspiration, you think back to the halcyon days of college. Ah, those were the days…having a social life, not getting hungover from drinking one light beer, feeling like the horizons of your life stretched outward to infinity. The \"Best of Maroon 5\" playlist blasting from your office's ceiling speakers snaps you out of the trance.\n\nFocus.\n\nIt's a fuzzy memory, but you recall the \"universal outline\" your Marketing 101 professor taught you: audience → promise → proof → CTA. That should do for now.\n\nIt's not glamorous, but neither is filing for unemployment.\n\nThe client pings you again, this time on Teams: \"How's it coming along?\"\n\nTeams, email…they're hitting you from all angles today. You eye the window by your desk, just in case the client sends you a carrier pigeon with a \"just checking in\" note tied to its leg.",
       choices: [
-        { label: "Send a rough direction with rationale.", to: "roughDirection" },
-        { label: "Say “In progress” and hope the outline counts as progress.", to: "countsAsProgress" }
+        { label: "Send a rough direction and back it up with rationale.", to: "roughDirection" },
+        { label: "Say \"In progress\" and hope the outline counts as progress.", to: "countsAsProgress" }
       ]
     },
 
     tightenLater: {
-      effect: () => {
-        state.scope = "expanding";
-      },
       text:
-        "The Adderall is doing its thing. An unearned sense of confidence sprouts from deep within, making you feel warm and fuzzy.\n\nYou write fast. The page fills more quickly than you thought it would.\n\nFuck it, let's send it and see what they think.\n\nFeedback arrives shortly after: “This is great. Can we make it more premium but also more approachable, and also funnier but less casual?”",
+        "The Adderall is doing its thing. A sense of confidence, possibly unearned, sprouts from deep within you.\n\nYou write quickly. The page fills sooner than you thought it would. You send it to the client without a second look.\n\nFeedback arrives shortly after: \"This is great. Can we make it more premium but also more approachable, and also funnier but less casual?\"",
       choices: [
         { label: "Translate feedback into 2 concrete edits and confirm.", to: "translateFeedback" },
-        { label: "Say “Totally” and crack open the thesaurus on your desk.", to: "thesaurus" }
+        { label: "Say \"Totally\" and crack open the thesaurus on your desk.", to: "thesaurus" }
       ]
     },
 
     legalOptimizing: {
-      effect: () => {
-        state.confidence = "medium-high";
-      },
       text:
-        "You ask what legal is optimizing for.\n\nLegal responds with a list of forbidden words.\n\nSurprisingly, you can still say something. You just have to vaguely gesture at it.",
+        "You ask what legal is optimizing for.\n\nLegal responds with a list of forbidden words.\n\nAt this point, it feels like you'll need to vaguely gesture at product benefits rather than state them outright.",
       choices: [
-        { label: "Rewrite with ‘could help’ energy and cleaner claims.", to: "safeClaims" },
-        { label: "Move the bold promise to a subhead and let proof do the talking.", to: "proofTalk" }
+        { label: "Add \"could help\" before every benefit that's listed.", to: "safeClaims" },
+        { label: "\"Rewrite\" the draft by moving the bold promise to a subhead. Hopefully they don't check too closely.", to: "safeClaims" }
       ]
     },
 
     pretendOptional: {
-      effect: () => {
-        state.confidence = "audacious";
-        state.scope = "chaos";
-      },
       text:
-        "You pretend legal feedback is optional and start writing.\n\nIt is not.\n\nAfter sending your draft, a calendar invite appears: “Legal Sync (30 min).\n\n”Welp. Looks like you gambled and lost.",
+        "You pretend legal feedback is optional and start writing.\n\nAfter sending your first draft, a calendar invite appears: \"Legal Sync (30 min).\"\n\nWelp. Looks like you gambled and lost.",
       choices: [
-        { label: "Attend the sync. Bring your notebook and a slice of humble pie.", to: "legalSync" },
-        { label: "Reschedule indefinitely. (Bold.)", to: "reschedule" }
+        { label: "Attend the sync.", to: "legalSync" },
+        { label: "Attempt to reschedule the sync indefinitely.", to: "reschedule" }
       ]
     },
 
     northStar: {
-      effect: () => {
-        state.confidence = "high";
-        state.scope = "contained";
-      },
       text:
-        "You propose a north-star line and 3 supporting proof points.\n\nThey say: “This is the first time I’ve understood our product.”\n\nTruth be told, this is the first time you've understood their product, too.",
+        "You propose a north-star line and 3 supporting proof points.\n\nThey say: \"This is the first time I've understood our product.\"\n\nTruth be told, this is the first time you've understood their product, too.",
       choices: [
-        { label: "Lock it in and ship.", to: "endingApproved" },
-        { label: "Add a bonus alt line for future-you.", to: "endingHero" }
+        { label: "Lock it in and send the final draft.", to: "endingApproved" },
+        { label: "Add a bonus alt line for some extra credit.", to: "endingHero" }
       ]
     },
 
     smoothie: {
-      effect: () => {
-        state.confidence = "medium";
-        state.scope = "expanding";
-      },
       text:
-        "You blend the options.\n\nIt’s workable.\n\nClient: “Great. Now can we do 12 versions for different audiences?”\n\nYou feel a migraine coming on.",
+        "You blend the options.\n\nIt's workable. You think that if it were a real smoothie, it'd probably taste like that grayish protein goop that YouTubers are paid to hawk to 14-year-olds.\n\nClient: \"Great. Now can we do 12 versions for different audiences?\"\n\nYou feel a migraine coming on.",
       choices: [
-        { label: "Push back with a simple matrix and a plan.", to: "endingMatrix" },
-        { label: "Say yes and version like you've never versioned before.", to: "endingVersioning" }
+        { label: "Push back with a simple messaging matrix and a plan.", to: "endingMatrix" },
+        { label: "Reply with \"Absolutely!\"", to: "endingVersioning" }
       ]
     },
 
     cutline: {
-      effect: () => {
-        state.confidence = "high";
-      },
       text:
-        "You reply, as gently as possible: “If everything is important, nothing is.”\n\nA response comes in: “That’s fair.”\n\nYou have successfully negotiated with reality.",
+        "You reply, as gently as possible: \"If everything is important, nothing is.\"\n\nA response comes in: \"That's fair.\"\n\nYou have successfully negotiated with reality.",
       choices: [
-        { label: "Prioritize 3 benefits and ship.", to: "endingApproved" },
-        { label: "Turn the rest into a follow-up asset.", to: "endingSystem" }
+        { label: "Pick 3 benefits to prioritize and send it back for review.", to: "endingApproved" },
+        { label: "Offer to deliver a follow-up asset at a later date.", to: "endingSystem" }
       ]
     },
 
     reduceFont: {
-      effect: () => {
-        state.confidence = "medium-low";
-        state.scope = "expanding";
-      },
       text:
-        "You add the benefits. The product brief now looks like it’s whispering.\n\nSomeone in the email chain asks: “Can we make it pop?”",
+        "You add the benefits. The product brief now looks like it's whispering.\n\nSomeone in the email chain asks: \"Can we make it pop?\"",
       choices: [
-        { label: "Recommend splitting into two slides.", to: "endingSplit" },
-        { label: "Accept the fact that you're giving Small Font Energy.", to: "endingTinyType" }
+        { label: "Recommend splitting the content over two pages instead of one.", to: "endingSplit" },
+        { label: "Ignore the question entirely.", to: "endingTinyType" }
       ]
     },
 
     roughDirection: {
-      effect: () => {
-        state.confidence = "medium-high";
-      },
       text:
-        "You send a direction with rationale.\n\nClient replies: “Love the thinking.”\n\nYour work has been perceived. Cool.",
+        "You send a direction with rationale.\n\nClient replies: \"Love the thinking.\"\n\nYour work has been perceived. Cool.",
       choices: [
-        { label: "Write the draft with guardrails.", to: "endingApproved" },
-        { label: "Ask for one more constraint to keep it clean.", to: "endingHero" }
+        { label: "Write your draft with your initial direction as the foundation.", to: "endingApproved" },
+        { label: "Ask for one more constraint because you're still feeling iffy about what the product does.", to: "endingHero" }
       ]
     },
 
     countsAsProgress: {
       text:
-        "You say “In progress.”\n\nThey respond with a thumbs up.\n\nA thumbs up is not feedback, but it is technically a form of communication.",
+        "You say \"In progress.\"\n\nThey respond with a thumbs up.\n\nAt least you have some heads-down time now.",
       choices: [
         { label: "Turn the outline into a workable draft.", to: "endingApproved" },
-        { label: "Continue outlining until the deadline outlines you.", to: "endingOutline" }
+        { label: "Indulge in your perfectionist streak and continue outlining.", to: "endingOutline" }
       ]
     },
 
     translateFeedback: {
-      effect: () => {
-        state.confidence = "high";
-        state.scope = "contained";
-      },
       text:
-        "You translate feedback into two concrete changes and confirm.\n\nThey say: “Perfect. Approved.”\n\nYou look around to see if anyone witnessed this historic event.",
+        "You translate feedback into two concrete changes and confirm.\n\nThey say: \"Perfect. Approved.\"\n\nYou look around to see if anyone witnessed this historic event.",
       choices: [
-        { label: "Implement changes and ship.", to: "endingApproved" },
+        { label: "Implement the changes and send it off to the client.", to: "endingApproved" },
         { label: "Add a second option for safety.", to: "endingHero" }
       ]
     },
 
     thesaurus: {
-      effect: () => {
-        state.confidence = "medium-low";
-        state.scope = "chaos";
-      },
       text:
-        "You consult the thesaurus.\n\nNow everything sounds like a luxury candle brand.\n\nClient: “This feels… expensive.”\n\nYou are not sure that’s good.",
+        "You consult your trusty thesaurus as you scan over your draft.\n\nThe product brief now reads like the script for a perfume commercial.\n\n\"This feels… expensive,\" the client replies.\n\nYou are not sure that's good.",
       choices: [
-        { label: "Pull it back to plain language + strong proof.", to: "proofTalk" },
-        { label: "Double down. Become the candle.", to: "endingCandle" }
+        { label: "Go back to basics with plain, clear, human language.", to: "safeClaims" },
+        { label: "Double down.", to: "endingCandle" }
       ]
     },
 
     safeClaims: {
-      effect: () => {
-        state.confidence = "high";
-      },
       text:
         "You rewrite the product brief with safer claims and cleaner phrasing.\n\nLegal approves.\n\nYou feel your shoulders relax slightly.",
-      choices: [{ label: "Ship it.", to: "endingApproved" }]
-    },
-
-    proofTalk: {
-      effect: () => {
-        state.confidence = "high";
-      },
-      text:
-        "You let proof do the talking.\n\nLess promise, more receipts.\n\nEveryone agrees. This is the closest thing to peace.",
-      choices: [{ label: "Ship it.", to: "endingApproved" }]
+      choices: [{ label: "Send it off and mark it as \"done.\"", to: "endingApproved" }]
     },
 
     legalSync: {
-      effect: () => {
-        state.confidence = "medium-high";
-      },
       text:
-        "You attend the legal sync.\n\nIt’s not as much of a bloodbath as you expected.\n\nYou leave with three safe phrases and a newfound respect for the word 'can' vs. 'will.'",
-      choices: [{ label: "Rewrite accordingly and ship.", to: "endingApproved" }]
+        "You attend the legal sync.\n\nIt's not as much of a bloodbath as you expected.\n\nYou leave with a renewed respect for how slippery the English language can be when you put your mind to it.",
+      choices: [{ label: "Rewrite accordingly and send it back to Legal for approval.", to: "endingApproved" }]
     },
 
     reschedule: {
-      effect: () => {
-        state.confidence = "temporary";
-        state.scope = "volcanic";
-      },
       text:
-        "You reschedule indefinitely.\n\nLegal does not buy your attempt at calendar jazz.\n\nA new invite arrives: “Legal Sync (now).”",
+        "You reschedule indefinitely.\n\nLegal does not buy your attempt at calendar jazz.\n\nA new invite arrives: \"Legal Sync (now).\"",
       choices: [
         { label: "Join. Immediately.", to: "legalSync" },
         { label: "Run away and start a goat farm.", to: "endingGoats" }
@@ -265,91 +192,82 @@
     endingApproved: {
       ending: "approved",
       text:
-        "Ending: Approved in (Almost) One Round.\n\nYou ship. It gets approved.\n\nYou live to see another day.\n\nNice work.",
-      choices: [{ label: "Play again", to: "start", count: false }]
+        "Ending: Approved in (Almost) One Round.\n\nYour draft gets approved, and you live to see another day.\n\nNice work.",
+      choices: [{ label: "Play again", to: "start" }]
     },
 
     endingHero: {
       ending: "hero",
       text:
-        "Ending: The One Good Question.\n\nYour single clarifying question prevented three weeks of scope creep.\n\nYour project manager feels a sudden warmth. They don’t know why.",
-      choices: [{ label: "Play again", to: "start", count: false }]
+        "Ending: The One Good Question.\n\nYour single clarifying question prevented three weeks of scope creep.\n\nYour project manager feels a sudden warmth. They don't know why.",
+      choices: [{ label: "Play again", to: "start" }]
     },
 
     endingMatrix: {
       ending: "matrix",
       text:
         "Ending: The Matrix.\n\nYou propose a simple versioning matrix. Everyone agrees.\n\nYou'll take that as a win any day.",
-      choices: [{ label: "Play again", to: "start", count: false }]
+      choices: [{ label: "Play again", to: "start" }]
     },
 
     endingVersioning: {
       ending: "versions",
       text:
-        "Ending: 12 Versions Later.\n\nYou deliver all versions.\n\nThe client asks for “one more, but slightly friendlier.”\n\nYou wonder if losing your versionity was this annoying for other people.",
-      choices: [{ label: "Play again", to: "start", count: false }]
+        "Ending: 12 Versions Later.\n\nYou deliver all versions.\n\nThe client asks for \"one more, but slightly friendlier.\"\n\nYou make a joke about \"losing your versionity\" to the coworker next to you. They report you to HR. At least you won't have to think about this brief ever again if you get fired.",
+      choices: [{ label: "Play again", to: "start" }]
     },
 
     endingSystem: {
       ending: "system",
       text:
-        "Ending: The System Thinker.\n\nYou turn extra benefits into a follow-up asset.\n\nClient: “This is so helpful.”\n\nYou: “Thank you.” (You mean it. Mostly.)",
-      choices: [{ label: "Play again", to: "start", count: false }]
+        "Ending: The System Thinker.\n\nYou offer to turn the extra benefits into a follow-up asset to be delivered at a later date.\n\nClient: \"Great idea. Let's circle back on this next week.\"\n\nYou are now able to procrastinate a little longer. You acknowledge that you will be in this exact situation again once next week comes. You don't care.",
+      choices: [{ label: "Play again", to: "start" }]
     },
 
     endingSplit: {
       ending: "split",
       text:
-        "Ending: The Two-Slide Solution.\n\nYou split the content. Everything breathes.\n\nSomeone says “Now it pops.”\n\nYou accept your new identity as a Pop Star.",
-      choices: [{ label: "Play again", to: "start", count: false }]
+        "Ending: The Two-Pager.\n\nYou split the content into two pages. Everything breathes.\n\nSomeone says \"Now it pops.\"\n\nYou are now a Pop Star. You appreciate sequins, so this feels fitting.",
+      choices: [{ label: "Play again", to: "start" }]
     },
 
     endingTinyType: {
       ending: "tinytype",
       text:
-        "Ending: Small Font Energy.\n\nYou reduce the font. Again.\n\nYou’ve created an award-winning deliverable that can only be read by ants.",
-      choices: [{ label: "Play again", to: "start", count: false }]
+        "Ending: Small Font Energy.\n\nYou've created a killer product brief that can only be read by ants.",
+      choices: [{ label: "Play again", to: "start" }]
     },
 
     endingOutline: {
       ending: "outline",
       text:
-        "Ending: Outline Eternal.\n\nYou keep outlining.\n\nThe deadline arrives, impressed by your structure but unconvinced by its usefulness.",
-      choices: [{ label: "Play again", to: "start", count: false }]
+        "Ending: Outline Eternal.\n\nYou keep outlining.\n\nThe deadline arrives, and all you have to show for it is a half-baked outline. You get a calendar invite from your boss: \"Performance Chat.\" Gulp.",
+      choices: [{ label: "Play again", to: "start" }]
     },
 
     endingCandle: {
       ending: "candle",
       text:
-        "Ending: Luxury Candle Brand.\n\nYour copy is now ‘elevated.’\n\nNo one knows what it means, but it smells expensive.\n\nLegal approves, because legal also enjoys candles.",
-      choices: [{ label: "Play again", to: "start", count: false }]
+        "Ending: Lap of Luxury.\n\nYour copy is now 'elevated.' Too bad the product brief is for a B2B software solution.\n\nThe benefits have become so obfuscated by your flowery prose that they actually follow Legal's guidelines.\n\nThey approve your draft, surprisingly. Turns out someone on the legal team is a big fan of poetry.",
+      choices: [{ label: "Play again", to: "start" }]
     },
 
     endingGoats: {
       ending: "goats",
       text:
         "Ending: The Goat Farm.\n\nYou quit your job and start a goat farm. At least the goats don't have strong opinions about CTAs.\n\nOddly, the client still emails you.",
-      choices: [{ label: "Play again", to: "start", count: false }]
+      choices: [{ label: "Play again", to: "start" }]
     }
   };
 
   const els = {
     text: document.getElementById("text"),
     choices: document.getElementById("choices"),
-    confidence: document.getElementById("confidence"),
-    rounds: document.getElementById("rounds"),
-    scope: document.getElementById("scope"),
     restart: document.getElementById("restart"),
     copyEnding: document.getElementById("copy-ending"),
     status: document.getElementById("status"),
     runId: document.getElementById("run-id")
   };
-
-  function renderMeta() {
-    els.confidence.textContent = state.confidence;
-    els.rounds.textContent = String(state.rounds);
-    els.scope.textContent = state.scope;
-  }
 
   function clearStatus() {
     if (els.status) els.status.textContent = "";
@@ -383,7 +301,6 @@
     const node = story[nodeKey];
     if (!node) return;
 
-    if (typeof node.effect === "function") node.effect();
     if (node.ending) state.ending = node.ending;
 
     if (els.text) els.text.textContent = node.text;
@@ -396,28 +313,17 @@
       btn.textContent = c.label;
 
       btn.addEventListener("click", () => {
-  // Only count rounds if this choice allows it
-  if (c.count !== false) {
-    state.rounds += 1;
-  }
-
-  renderMeta();
-  updateURL(c.to);
-  go(c.to);
-});
+        updateURL(c.to);
+        go(c.to);
+      });
 
       li.appendChild(btn);
       if (els.choices) els.choices.appendChild(li);
     });
-
-    renderMeta();
   }
 
   if (els.restart) {
     els.restart.addEventListener("click", () => {
-      state.confidence = "medium";
-      state.rounds = 0;
-      state.scope = "contained";
       state.ending = null;
       setRunId();
       updateURL("start");
@@ -433,7 +339,7 @@
         await navigator.clipboard.writeText(url.toString());
         setStatus("Link copied.");
       } catch {
-        setStatus("Couldn’t copy. (Browsers are like that.)");
+        setStatus("Couldn't copy. (Browsers are like that.)");
       }
     });
   }
