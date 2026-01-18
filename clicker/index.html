@@ -5,315 +5,227 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Copy Clicker</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    /* Theme tokens */
+    :root {
+      --bg: #fff;
+      --text: #111;
+      --muted: #444;
+      --rule: #ddd;
+    }
+    html[data-theme="dark"] {
+      --bg: #111;
+      --text: #f2f2f2;
+      --muted: #bbb;
+      --rule: #333;
     }
 
+    /* Base */
+    html {
+      -webkit-text-size-adjust: 100%;
+      background: var(--bg);
+      color: var(--text);
+    }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
-      color: white;
-      min-height: 100vh;
-      padding: 1rem;
+      margin: 0;
+      padding: 1.25rem;
+      font: 16px/1.55 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
     }
 
+    /* Layout */
     .container {
-      max-width: 1200px;
+      max-width: 42rem;
       margin: 0 auto;
     }
 
-    .header {
-      text-align: center;
+    /* Typography */
+    h1 {
+      font-size: 1.6rem;
+      margin: 0 0 0.5rem 0;
+    }
+    h2 {
+      font-size: 1.05rem;
+      margin: 1.25rem 0 0.5rem 0;
+    }
+    p {
+      margin: 0 0 1rem 0;
+    }
+    small {
+      color: var(--muted);
+    }
+
+    /* Sections */
+    .section {
       margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .section:last-child {
+      border-bottom: none;
     }
 
-    .header h1 {
-      font-size: 3rem;
-      font-weight: bold;
-      background: linear-gradient(to right, #60a5fa, #a78bfa);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 0.5rem;
-    }
-
-    .header p {
-      color: #94a3b8;
-    }
-
-    .grid {
+    /* Stats */
+    .stats-grid {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 1rem;
+      margin: 1rem 0;
     }
-
-    @media (min-width: 768px) {
-      .grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    .panel {
-      background: rgba(30, 41, 59, 0.5);
-      backdrop-filter: blur(10px);
-      border-radius: 0.75rem;
-      padding: 2rem;
-    }
-
-    .stats-box {
+    .stat-box {
       text-align: center;
-      margin-bottom: 1.5rem;
+      padding: 0.75rem;
+      border: 1px solid var(--rule);
+      border-radius: 6px;
     }
-
-    .word-count {
-      font-size: 3.5rem;
-      font-weight: bold;
-      margin-bottom: 0.5rem;
-    }
-
-    .wps {
+    .stat-value {
       font-size: 1.5rem;
-      color: #60a5fa;
-      margin-top: 0.5rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+    .stat-label {
+      font-size: 0.875rem;
+      color: var(--muted);
     }
 
-    .boost {
-      font-size: 1.25rem;
-      color: #4ade80;
-      margin-top: 0.25rem;
-    }
-
-    .click-button-wrapper {
-      position: relative;
-      margin-bottom: 1rem;
-    }
-
+    /* Click button */
     .click-button {
       width: 100%;
-      aspect-ratio: 1;
-      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-      border: none;
-      border-radius: 50%;
-      color: white;
-      font-size: 3.5rem;
-      font-weight: bold;
-      cursor: pointer;
-      box-shadow: 0 20px 60px rgba(59, 130, 246, 0.5);
-      transition: transform 0.1s;
+      padding: 2rem;
+      font-size: 2rem;
+      font-weight: 600;
+      margin: 1rem 0;
       position: relative;
       overflow: hidden;
     }
-
     .click-button:hover {
-      transform: scale(1.05);
+      background: var(--text);
+      color: var(--bg);
     }
-
     .click-button:active {
-      transform: scale(0.95);
+      transform: scale(0.98);
     }
 
     .floating-text {
       position: absolute;
-      font-size: 1.5rem;
+      font-size: 1rem;
       font-weight: bold;
       pointer-events: none;
       animation: float 1s ease-out forwards;
-      z-index: 10;
+      color: var(--muted);
     }
 
     @keyframes float {
       0% {
-        transform: translateY(0) scale(1);
+        transform: translateY(0);
         opacity: 1;
       }
       100% {
-        transform: translateY(-100px) scale(0.5);
+        transform: translateY(-60px);
         opacity: 0;
       }
     }
 
-    .reset-button {
-      width: 100%;
-      background: #475569;
-      border: none;
-      padding: 0.75rem;
-      border-radius: 0.5rem;
-      color: white;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      transition: background 0.2s;
-    }
-
-    .reset-button:hover {
-      background: #64748b;
-    }
-
-    .stats-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-      font-size: 0.875rem;
-    }
-
-    .stat-row {
-      display: flex;
-      justify-content: space-between;
-    }
-
-    .stat-label {
-      color: #94a3b8;
-    }
-
-    .stat-value {
-      font-family: monospace;
-    }
-
-    h2 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .generators-list {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-    }
-
-    .generator-item {
-      padding: 1rem;
-      border-radius: 0.5rem;
-      background: #334155;
-      border: none;
-      color: white;
+    /* Buttons */
+    button {
+      font: inherit;
+      color: inherit;
+      background: none;
+      border: 1px solid var(--rule);
+      padding: 0.35rem 0.6rem;
+      border-radius: 6px;
       cursor: pointer;
       transition: all 0.2s;
-      text-align: left;
-      width: 100%;
     }
-
-    .generator-item:hover:not(:disabled) {
-      background: #475569;
+    button:hover:not(:disabled) {
+      border-color: var(--muted);
     }
-
-    .generator-item:disabled {
-      background: rgba(30, 41, 59, 0.5);
+    button:disabled {
       opacity: 0.5;
       cursor: not-allowed;
     }
 
-    .generator-content {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .generator-icon {
-      width: 3rem;
-      height: 3rem;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      flex-shrink: 0;
-    }
-
-    .generator-info {
-      flex: 1;
-    }
-
-    .generator-name {
-      font-weight: bold;
-      margin-bottom: 0.25rem;
-    }
-
-    .generator-desc {
-      font-size: 0.875rem;
-      color: #94a3b8;
-      margin-bottom: 0.25rem;
-    }
-
-    .generator-production {
-      font-size: 0.875rem;
-      color: #60a5fa;
-    }
-
-    .generator-cost-info {
-      text-align: right;
-    }
-
-    .generator-cost {
-      font-weight: bold;
-      color: #fbbf24;
-    }
-
-    .generator-owned {
-      font-size: 0.875rem;
-      color: #94a3b8;
-    }
-
-    .achievements-list {
+    /* Generators */
+    .generator-list {
       display: flex;
       flex-direction: column;
       gap: 0.5rem;
+      margin: 1rem 0;
     }
-
-    .achievement-item {
+    .generator-item {
+      width: 100%;
+      text-align: left;
       padding: 0.75rem;
-      border-radius: 0.5rem;
-      background: rgba(71, 85, 105, 0.5);
-    }
-
-    .achievement-item.unlocked {
-      background: rgba(251, 191, 36, 0.2);
-      border: 1px solid rgba(251, 191, 36, 0.3);
-    }
-
-    .achievement-content {
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      gap: 0.5rem;
     }
-
-    .achievement-icon {
-      font-size: 1rem;
-    }
-
-    .achievement-info {
+    .generator-info {
       flex: 1;
     }
+    .generator-name {
+      font-weight: 600;
+      margin-bottom: 0.125rem;
+    }
+    .generator-desc {
+      font-size: 0.875rem;
+      color: var(--muted);
+    }
+    .generator-cost {
+      text-align: right;
+      font-family: monospace;
+      font-size: 0.875rem;
+    }
+    .generator-owned {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 0.125rem;
+    }
 
+    /* Achievements */
+    .achievement-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin: 1rem 0;
+    }
+    .achievement-item {
+      padding: 0.75rem;
+      border: 1px solid var(--rule);
+      border-radius: 6px;
+    }
+    .achievement-item.unlocked {
+      background: var(--text);
+      color: var(--bg);
+      border-color: var(--text);
+    }
     .achievement-name {
-      font-weight: bold;
+      font-weight: 600;
+      margin-bottom: 0.125rem;
     }
-
-    .achievement-name.unlocked {
-      color: #fbbf24;
-    }
-
-    .achievement-name.locked {
-      color: #94a3b8;
-    }
-
     .achievement-desc {
       font-size: 0.875rem;
-      color: #94a3b8;
+    }
+    .achievement-item:not(.unlocked) .achievement-name {
+      color: var(--muted);
     }
 
+    /* Notifications */
     .notification {
       position: fixed;
-      top: 1rem;
-      right: 1rem;
-      padding: 1rem 1.5rem;
-      border-radius: 0.5rem;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-      z-index: 1000;
+      top: 1.25rem;
+      right: 1.25rem;
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--rule);
+      border-radius: 6px;
+      background: var(--bg);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      max-width: 300px;
       animation: slideIn 0.3s ease-out;
+      z-index: 1000;
+    }
+    html[data-theme="dark"] .notification {
+      box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
     }
 
     @keyframes slideIn {
@@ -327,104 +239,74 @@
       }
     }
 
-    .notification.achievement {
-      background: linear-gradient(to right, #f59e0b, #f97316);
-    }
-
-    .notification.event-good {
-      background: #10b981;
-    }
-
-    .notification.event-bad {
-      background: #ef4444;
-    }
-
-    .notification.event-bonus {
-      background: #3b82f6;
-    }
-
-    .notification-content {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-
-    .notification-icon {
-      font-size: 1.5rem;
-    }
-
     .notification-title {
-      font-weight: bold;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
     }
-
     .notification-desc {
       font-size: 0.875rem;
-      opacity: 0.9;
+      color: var(--muted);
+    }
+
+    /* Controls row */
+    .controls {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin: 1rem 0;
+    }
+
+    /* Utility */
+    .meta {
+      color: var(--muted);
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <div class="header">
-      <h1>Copywriter Clicker</h1>
-      <p>Click to generate words. Buy generators. Survive scope creep.</p>
+    <h1>Copy Clicker</h1>
+    <p class="meta">Click to generate words. Buy generators. Become the most prolific writer of all time.</p>
+
+    <div class="section">
+      <div class="stats-grid">
+        <div class="stat-box">
+          <div class="stat-value" id="word-count">0</div>
+          <div class="stat-label">words</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-value" id="wps">0</div>
+          <div class="stat-label">per second</div>
+        </div>
+        <div class="stat-box" id="boost-box" style="display: none;">
+          <div class="stat-value" id="boost-mult">×2</div>
+          <div class="stat-label">boost active</div>
+        </div>
+      </div>
+
+      <button class="click-button" id="click-button">CLICK</button>
+
+      <div class="controls">
+        <button id="reset-button">Reset</button>
+      </div>
     </div>
 
-    <div class="grid">
-      <!-- Left Column -->
-      <div>
-        <div class="panel">
-          <div class="stats-box">
-            <div class="word-count" id="word-count">0</div>
-            <div style="color: #94a3b8;">words</div>
-            <div class="wps" id="wps">0/sec</div>
-            <div class="boost" id="boost" style="display: none;"></div>
-          </div>
+    <div class="section">
+      <h2>Generators</h2>
+      <div class="generator-list" id="generators-list"></div>
+    </div>
 
-          <div class="click-button-wrapper">
-            <button class="click-button" id="click-button">CLICK</button>
-          </div>
+    <div class="section">
+      <h2>Stats</h2>
+      <p>
+        <small>Total words: <span id="total-words">0</span></small><br>
+        <small>Clicks: <span id="clicks">0</span></small><br>
+        <small>Achievements: <span id="achievements-count">0/4</span></small>
+      </p>
+    </div>
 
-          <button class="reset-button" id="reset-button">
-            <span>↻</span>
-            Reset
-          </button>
-        </div>
-
-        <div class="panel" style="margin-top: 1.5rem;">
-          <h2>Stats</h2>
-          <div class="stats-grid">
-            <div class="stat-row">
-              <span class="stat-label">Total words:</span>
-              <span class="stat-value" id="total-words">0</span>
-            </div>
-            <div class="stat-row">
-              <span class="stat-label">Clicks:</span>
-              <span class="stat-value" id="clicks">0</span>
-            </div>
-            <div class="stat-row">
-              <span class="stat-label">Achievements:</span>
-              <span class="stat-value" id="achievements-count">0/4</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Right Column -->
-      <div>
-        <div class="panel">
-          <h2>Generators</h2>
-          <div class="generators-list" id="generators-list"></div>
-        </div>
-
-        <div class="panel" style="margin-top: 1.5rem;">
-          <h2 style="display: flex; align-items: center; gap: 0.5rem;">
-            <span style="color: #fbbf24;">🏆</span>
-            Achievements
-          </h2>
-          <div class="achievements-list" id="achievements-list"></div>
-        </div>
-      </div>
+    <div class="section">
+      <h2>Achievements</h2>
+      <div class="achievement-list" id="achievements-list"></div>
     </div>
   </div>
 
