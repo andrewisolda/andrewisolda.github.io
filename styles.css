@@ -189,6 +189,21 @@ img {
 }
 
 /* ------------------------------
+   Brand emphasis
+-------------------------------- */
+
+.brands {
+  opacity: 0.8;
+  transition: opacity 0.25s ease;
+}
+
+/* Dark mode: slightly quieter */
+html[data-theme="dark"] .brands {
+  opacity: 0.65;
+}
+
+
+/* ------------------------------
    Button styling (optional but nice)
 -------------------------------- */
 
