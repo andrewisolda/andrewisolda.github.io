@@ -31,11 +31,10 @@
     });
   }
 
-  // Shift-click copyright line for a secret!
-  const copyright = document.getElementById("copyright");
-  if (copyright) {
-    copyright.addEventListener("click", (e) => {
-      if (e.shiftKey) window.location.href = "/arcade/";
+  const yearEl = document.getElementById("year");
+if (yearEl) {
+  yearEl.textContent = new Date().getFullYear();
+}
     });
   }
 })();
