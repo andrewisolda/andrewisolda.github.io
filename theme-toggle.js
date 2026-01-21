@@ -9,6 +9,7 @@
 
   function apply(theme) {
     root.setAttribute("data-theme", theme);
+
     if (btn) {
       btn.textContent = theme === "dark" ? "Light mode" : "Dark mode";
       btn.setAttribute(
@@ -31,10 +32,9 @@
     });
   }
 
+  // Auto-update copyright year
   const yearEl = document.getElementById("year");
-if (yearEl) {
-  yearEl.textContent = new Date().getFullYear();
-}
-    });
+  if (yearEl) {
+    yearEl.textContent = String(new Date().getFullYear());
   }
 })();
