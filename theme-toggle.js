@@ -26,6 +26,7 @@
     btn.addEventListener("click", function () {
       const current =
         root.getAttribute("data-theme") === "dark" ? "dark" : "light";
+
       const next = current === "dark" ? "light" : "dark";
       localStorage.setItem("theme", next);
       apply(next);
