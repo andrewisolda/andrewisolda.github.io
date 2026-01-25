@@ -1,19 +1,34 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Resume — Andrew Isolda</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Opening resume…</title>
 
-  
-  <meta http-equiv="refresh" content="0; url=/pdf/resume.pdf">
+  <!-- Match site styling -->
+  <link rel="stylesheet" href="/styles.css" />
 
-  <!-- fallback -->
-  <link rel="canonical" href="/pdf/resume.pdf">
+  <!-- Prevent theme flash -->
+  <script>
+    (function () {
+      const saved = localStorage.getItem("theme");
+      if (saved) {
+        document.documentElement.setAttribute("data-theme", saved);
+      }
+    })();
+  </script>
+
+  <!-- Auto-open PDF -->
+  <meta http-equiv="refresh" content="0; url=/pdf/resume.pdf" />
 </head>
+
 <body>
-  <p>
-    Redirecting to resume…
-    <a href="/pdf/resume.pdf">Click here if it doesn’t open.</a>
-  </p>
+  <main>
+    <h1>Opening resume…</h1>
+    <p>
+      If it doesn’t open automatically,
+      <a href="/pdf/resume.pdf">click here</a>.
+    </p>
+  </main>
 </body>
 </html>
