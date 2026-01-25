@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Opening resume…</title>
 
-  <!-- Match site styling -->
   <link rel="stylesheet" href="/styles.css" />
 
   <!-- Prevent theme flash -->
@@ -17,18 +16,21 @@
       }
     })();
   </script>
-
-  <!-- Auto-open PDF -->
-  <meta http-equiv="refresh" content="0; url=/pdf/resume.pdf" />
 </head>
 
 <body>
-  <main>
+  <main class="resume-redirect">
     <h1>Opening resume…</h1>
     <p>
       If it doesn’t open automatically,
       <a href="/pdf/resume.pdf">click here</a>.
     </p>
   </main>
+
+  <script>
+    setTimeout(() => {
+      window.location.href = "/pdf/resume.pdf";
+    }, 600);
+  </script>
 </body>
 </html>
